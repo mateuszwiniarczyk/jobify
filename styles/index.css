@@ -12,6 +12,7 @@ body {
 }
 
 /* Write your own custom component styles here */
+@tailwindcss forms;
 
 /* Start purging... */
 @tailwind utilities;
