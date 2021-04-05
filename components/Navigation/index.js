@@ -11,24 +11,22 @@ const Navigation = () => {
 
   return (
     <nav className="bg-white border-b border-gray-200">
-      <div className="flex items-center flex-wrap container mx-auto py-3">
+      <div className="container flex items-center flex-wrap mx-auto p-3 lg:px-0 lg:py-6">
         <Link href="/">
-          <a className="p-2 mr-4 inline-flex items-center">
-            <span className="text-xl text-black font-bold tracking-wide">Jobify</span>
-          </a>
+          <a className="text-xl font-bold tracking-wide mr-6 lg:text-2xl">Jobify</a>
         </Link>
         <button
           onClick={toggleMenu}
-          className="text-black inline-flex p-3 rounded lg:hidden ml-auto outline-none">
+          className="py-2 px-3 text-black rounded ml-auto outline-none bg-gray-100 lg:hidden">
           Menu
         </button>
         <ul
           className={classNames('w-full lg:inline-flex lg:flex-grow lg:w-auto', {
             hidden: !isOpen
           })}>
-          <li className="lg:inline-flex lg:ml-auto lg:w-auto w-full flex lg:h-auto">
+          <li className="w-full flex lg:inline-flex lg:ml-auto lg:w-auto">
             <Link href="/">
-              <a className="lg:w-auto w-full px-3 py-2">Submit offer</a>
+              <a className="w-full py-2 lg:w-auto lg:py-0">Submit offer</a>
             </Link>
           </li>
         </ul>
