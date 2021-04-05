@@ -27,16 +27,18 @@ const Home = () => {
               ))}
             </select>
           </div>
-          <Offer />
-          <Offer />
-          <Offer />
-          <Offer />
-          <Offer />
-          <Offer />
-          <Offer />
-          <Offer />
-          <Offer />
-          <Offer />
+          <div className="flex flex-col gap-6">
+            <Offer />
+            <Offer />
+            <Offer />
+            <Offer />
+            <Offer />
+            <Offer />
+            <Offer />
+            <Offer />
+            <Offer />
+            <Offer />
+          </div>
         </div>
       </div>
     </Layout>
