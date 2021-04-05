@@ -7,7 +7,7 @@ const Home = () => {
   const [filtersStatus, setFiltersStatus] = useState(false);
   return (
     <Layout>
-      <div className="w-full h-full grid lg:grid-cols-12 gap-10 lg:gap-20 py-5">
+      <div className="w-full grid lg:grid-cols-12 gap-10 lg:gap-20 py-10">
         <div className="lg:col-span-3 overflow-auto pr-8">
           <button
             type="button"
@@ -21,6 +21,14 @@ const Home = () => {
               hidden: !filtersStatus
             })}>
             <label>
+              <span className="text-lg font-medium">Job title</span>
+              <input
+                type="text"
+                className="mt-3 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                placeholder="Front-end developer"
+              />
+            </label>
+            <label className="block mt-6">
               <span className="text-lg font-medium">Location</span>
               <input
                 type="text"
@@ -120,6 +128,19 @@ const Home = () => {
           </form>
         </div>
         <div className="lg:col-span-9">
+          <div className="flex justify-center lg:justify-between items-center mb-6">
+            <span className="hidden lg:block lg:text-xl lg:font-medium">187 Jobs Found</span>
+            <select className="block border-0 bg-transparent">
+              <option>Relevancy</option>
+              <option>Latest</option>
+              <option>Highest salary</option>
+            </select>
+          </div>
+          <Offer />
+          <Offer />
+          <Offer />
+          <Offer />
+          <Offer />
           <Offer />
           <Offer />
           <Offer />
