@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import Checkbox from 'components/Checkbox';
+import Label from 'components/Label';
+import Input from 'components/Input';
 
 import { employmentTypes, experience, jobTypes } from 'data/filters';
 
@@ -10,25 +12,17 @@ const OffersFilterForm = ({ filtersStatus }) => {
       className={classNames('mt-6 lg:mt-0 lg:block', {
         hidden: !filtersStatus
       })}>
-      <label>
-        <span className="text-lg font-medium">Job title</span>
-        <input
-          type="text"
-          className="mt-3 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-          placeholder="Front-end developer"
-        />
-      </label>
-      <label className="block mt-6">
-        <span className="text-lg font-medium">Location</span>
-        <input
-          type="text"
-          className="mt-3 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
-          placeholder="London"
-        />
-      </label>
+      <div>
+        <span className="text-lg font-medium block mb-3">Job Title</span>
+        <Input id="job-title" type="text" placeholder="Front-end developer" />
+      </div>
+      <div className="mt-6">
+        <span className="text-lg font-medium block mb-3">Location</span>
+        <Input type="text" placeholder="London" id="location" />
+      </div>
 
       <fieldset className="flex flex-col items-start mt-6">
-        <legend className="text-lg font-medium">Job type</legend>
+        <legend className="text-lg font-medium block mb-3">Job type</legend>
 
         {jobTypes.map(({ value, label }) => (
           <Checkbox value={value} label={label} name="job-type" key={value} />
@@ -36,7 +30,7 @@ const OffersFilterForm = ({ filtersStatus }) => {
       </fieldset>
 
       <fieldset className="flex flex-col items-start mt-6">
-        <legend className="text-lg font-medium">Experience</legend>
+        <legend className="text-lg font-medium block mb-3">Experience</legend>
 
         {experience.map(({ value, label }) => (
           <Checkbox value={value} label={label} name="experience" key={value} />
@@ -44,7 +38,7 @@ const OffersFilterForm = ({ filtersStatus }) => {
       </fieldset>
 
       <fieldset className="flex flex-col items-start mt-6">
-        <legend className="text-lg font-medium">Employment type</legend>
+        <legend className="text-lg font-medium block mb-3">Employment type</legend>
         {employmentTypes.map(({ value, label }) => (
           <Checkbox value={value} label={label} name="employment" key={value} />
         ))}

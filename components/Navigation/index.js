@@ -30,8 +30,13 @@ const Navigation = () => {
             </Link>
           </li>
           <li className="w-full flex lg:inline-flex lg:ml-3 lg:w-auto">
-            <Link href="/login">
-              <a className="w-full py-2 lg:w-auto lg:py-0">Login</a>
+            <Link href="/signin">
+              <a className="w-full py-2 lg:w-auto lg:py-0">Sign in</a>
+            </Link>
+          </li>
+          <li className="w-full flex lg:inline-flex lg:ml-3 lg:w-auto">
+            <Link href="/signup">
+              <a className="w-full py-2 lg:w-auto lg:py-0">Sign up</a>
             </Link>
           </li>
         </ul>
