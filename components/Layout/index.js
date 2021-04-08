@@ -1,4 +1,5 @@
 import Navigation from 'components/Navigation';
+import Footer from 'components/Footer';
 
 const Layout = ({ children }) => (
   <div className="flex flex-col min-h-screen">
@@ -8,7 +9,7 @@ const Layout = ({ children }) => (
       {children}
     </main>
 
-    <footer className="container mx-auto mt-auto">© {new Date().getFullYear()}</footer>
+    <Footer className="container mx-auto mt-auto">© {new Date().getFullYear()}</Footer>
   </div>
 );
 
