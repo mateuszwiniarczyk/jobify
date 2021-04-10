@@ -21,7 +21,7 @@ const OffersFilterForm = ({ filtersStatus }) => {
         <Input type="text" placeholder="London" id="location" />
       </div>
 
-      <fieldset className="flex flex-col items-start mt-6">
+      <fieldset className="flex flex-col items-start mt-6 gap-1">
         <legend className="text-lg font-medium block mb-3">Job type</legend>
 
         {jobTypes.map(({ value, label }) => (
@@ -29,7 +29,7 @@ const OffersFilterForm = ({ filtersStatus }) => {
         ))}
       </fieldset>
 
-      <fieldset className="flex flex-col items-start mt-6">
+      <fieldset className="flex flex-col items-start mt-6 gap-1">
         <legend className="text-lg font-medium block mb-3">Experience</legend>
 
         {experience.map(({ value, label }) => (
@@ -37,7 +37,7 @@ const OffersFilterForm = ({ filtersStatus }) => {
         ))}
       </fieldset>
 
-      <fieldset className="flex flex-col items-start mt-6">
+      <fieldset className="flex flex-col items-start mt-6 gap-1">
         <legend className="text-lg font-medium block mb-3">Employment type</legend>
         {employmentTypes.map(({ value, label }) => (
           <Checkbox value={value} label={label} name="employment" key={value} />
