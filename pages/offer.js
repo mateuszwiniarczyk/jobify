@@ -2,7 +2,7 @@ import Layout from 'components/Layout';
 
 const Offer = () => (
   <Layout>
-    <div className="flex flex-col gap-10 lg:gap-20 lg:flex-row lg:items-start lg:max-w-7xl lg:mx-auto">
+    <div className="flex flex-col gap-10 items-start lg:gap-20 lg:flex-row lg:max-w-7xl lg:mx-auto">
       <div className="flex flex-col gap-5 bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10 lg:w-8/12">
         <div className="flex items-start gap-5">
           <picture className="rounded-full">
@@ -15,7 +15,7 @@ const Offer = () => (
           <div className="flex-grow">
             <div className="flex items-center justify-between w-full mb-2">
               <h2 className="text-2xl font-semibold">Junior Front-end Developer</h2>
-              <span className="text-gray-500">3 days ago</span>
+              <span className="hidden lg:inline-block text-gray-500">3 days ago</span>
             </div>
             <span className="text-blue-600 font-semibold inline-block">Facebook</span>
           </div>
@@ -76,7 +76,8 @@ const Offer = () => (
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10 lg:w-4/12">
+
+      <div className="bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10 lg:w-4/12 w-auto">
         <h3 className="text-3xl font-semibold">66,000$</h3>
         <span className="block">+ vat (B2B) per month</span>
         <h3 className="text-lg font-semibold mt-7">Contact with us</h3>
