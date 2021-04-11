@@ -1,130 +1,102 @@
 import Layout from 'components/Layout';
+import Input from 'components/Input';
+import Checkbox from 'components/Checkbox';
 
 const AddOffer = () => (
   <Layout>
-    <div className="mt-10 sm:mt-0">
-      <div className="md:grid md:grid-cols-3 md:gap-6">
-        <div className="mt-5 md:mt-0 md:col-span-2">
-          <form action="#" method="POST">
-            <div className="shadow overflow-hidden sm:rounded-md">
-              <div className="px-4 py-5 bg-white sm:p-6">
-                <div className="grid grid-cols-6 gap-6">
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="first_name" className="block text-sm font-medium text-gray-700">
-                      First name
-                    </label>
-                    <input
-                      type="text"
-                      name="first_name"
-                      id="first_name"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="last_name" className="block text-sm font-medium text-gray-700">
-                      Last name
-                    </label>
-                    <input
-                      type="text"
-                      name="last_name"
-                      id="last_name"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-4">
-                    <label
-                      htmlFor="email_address"
-                      className="block text-sm font-medium text-gray-700">
-                      Email address
-                    </label>
-                    <input
-                      type="text"
-                      name="email_address"
-                      id="email_address"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="country" className="block text-sm font-medium text-gray-700">
-                      Country / Region
-                    </label>
-                    <select
-                      id="country"
-                      name="country"
-                      className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
-                    </select>
-                  </div>
-
-                  <div className="col-span-6">
-                    <label
-                      htmlFor="street_address"
-                      className="block text-sm font-medium text-gray-700">
-                      Street address
-                    </label>
-                    <input
-                      type="text"
-                      name="street_address"
-                      id="street_address"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                    <label htmlFor="city" className="block text-sm font-medium text-gray-700">
-                      City
-                    </label>
-                    <input
-                      type="text"
-                      name="city"
-                      id="city"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                    <label htmlFor="state" className="block text-sm font-medium text-gray-700">
-                      State / Province
-                    </label>
-                    <input
-                      type="text"
-                      name="state"
-                      id="state"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-
-                  <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                    <label
-                      htmlFor="postal_code"
-                      className="block text-sm font-medium text-gray-700">
-                      ZIP / Postal
-                    </label>
-                    <input
-                      type="text"
-                      name="postal_code"
-                      id="postal_code"
-                      className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button
-                  type="submit"
-                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  Save
-                </button>
-              </div>
-            </div>
-          </form>
+    <div className="bg-white p-10 w-full max-w-screen-xl mx-auto">
+      <h2 className="text-2xl mb-5 font-semibold">New offer</h2>
+      <form action="#" method="POST" className="grid gap-y-5 sm:gap-10 grid-cols-12">
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Job Title</span>
+          <Input type="text" placeholder="Front-end developer" id="job-title" />
         </div>
-      </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Location</span>
+          <Input type="text" placeholder="London" id="location" />
+        </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Salary</span>
+          <Input type="number" placeholder="1000" id="salary" />
+        </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Job type</span>
+          <select className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300">
+            <option>Full Time</option>
+            <option>Part Time</option>
+          </select>
+        </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Experience</span>
+          <select className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300">
+            <option>Trainee</option>
+            <option>Junior</option>
+            <option>Mid</option>
+            <option>Senior</option>
+          </select>
+        </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Employment type</span>
+          <select className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300">
+            <option>B2B</option>
+            <option>Permanent</option>
+            <option>Mandate Contract</option>
+          </select>
+        </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Flexible hours</span>
+          <select className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Remote possible</span>
+          <select className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Paid holiday</span>
+          <select className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+          <span className="text-lg font-medium block mb-3">Online interview</span>
+          <select className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300">
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <fieldset className="col-span-12">
+          <legend className="text-lg font-medium block mb-3">Experience</legend>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+            <Checkbox value="React" label="React" name="skills" />
+            <Checkbox value="Vue" label="Vue" name="skills" />
+            <Checkbox value="JavaScript" label="JavaScript" name="skills" />
+            <Checkbox value="Next.js" label="Next.js" name="skills" />
+            <Checkbox value="Node.js" label="Node.js" name="skills" />
+            <Checkbox value="TypeScript" label="TypeScript" name="skills" />
+            <Checkbox value="Css" label="Css" name="skills" />
+            <Checkbox value="PHP" label="PHP" name="skills" />
+            <Checkbox value="Ruby" label="Ruby" name="skills" />
+            <Checkbox value="Python" label="Python" name="skills" />
+            <Checkbox value="Java" label="Java" name="skills" />
+            <Checkbox value="C" label="C" name="skills" />
+            <Checkbox value="SQL" label="SQL" name="skills" />
+          </div>
+        </fieldset>
+
+        <button
+          type="submit"
+          className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg col-span-12 sm:col-span-6 lg:col-span-3 mt-10">
+          Add offer
+        </button>
+      </form>
     </div>
   </Layout>
 );
