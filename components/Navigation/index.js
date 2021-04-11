@@ -26,6 +26,11 @@ const Navigation = () => {
           })}>
           <li className="w-full flex lg:inline-flex lg:ml-3 lg:w-auto">
             <Link href="/">
+              <a className="w-full py-2 lg:w-auto lg:py-0">Home</a>
+            </Link>
+          </li>
+          <li className="w-full flex lg:inline-flex lg:ml-3 lg:w-auto">
+            <Link href="/">
               <a className="w-full py-2 lg:w-auto lg:py-0">Submit offer</a>
             </Link>
           </li>
@@ -37,6 +42,11 @@ const Navigation = () => {
           <li className="w-full flex lg:inline-flex lg:ml-3 lg:w-auto">
             <Link href="/signup">
               <a className="w-full py-2 lg:w-auto lg:py-0">Sign up</a>
+            </Link>
+          </li>
+          <li className="w-full flex lg:inline-flex lg:ml-3 lg:w-auto">
+            <Link href="/admin">
+              <a className="w-full py-2 lg:w-auto lg:py-0">Admin</a>
             </Link>
           </li>
         </ul>
