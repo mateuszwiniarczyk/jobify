@@ -3,8 +3,19 @@ import Layout from 'components/Layout';
 import Offer from 'components/Offer';
 import OffersFilterForm from 'components/OffersFilterForm';
 import { sortingTypes } from 'data/filters';
+import getRecentOffers from 'services/offers/getRecent';
 
-const Home = () => {
+export const getStaticProps = async () => {
+  const offers = await getRecentOffers(4);
+
+  return {
+    props: {
+      offers
+    }
+  };
+};
+
+const Home = ({ offers }) => {
   const [filtersStatus, setFiltersStatus] = useState(false);
   return (
     <Layout>
@@ -28,16 +39,9 @@ const Home = () => {
             </select>
           </div>
           <div className="flex flex-col gap-6">
-            <Offer />
-            <Offer />
-            <Offer />
-            <Offer />
-            <Offer />
-            <Offer />
-            <Offer />
-            <Offer />
-            <Offer />
-            <Offer />
+            {offers.map((offer) => (
+              <Offer {...offer} key={offer.id} />
+            ))}
           </div>
         </div>
       </div>
