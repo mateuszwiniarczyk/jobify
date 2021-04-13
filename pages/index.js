@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import useSWR from 'swr';
 import Layout from 'components/Layout';
 import Offer from 'components/Offer';
 import OffersFilterForm from 'components/OffersFilterForm';
 import { sortingTypes } from 'data/filters';
 import getRecentOffers from 'services/offers/getRecent';
+import { jsonFetcher } from 'utils';
 
 export const getStaticProps = async () => {
   const offers = await getRecentOffers(4);
@@ -17,6 +19,7 @@ export const getStaticProps = async () => {
 
 const Home = ({ offers }) => {
   const [filtersStatus, setFiltersStatus] = useState(false);
+  const { data } = useSWR('/api/offers', jsonFetcher, { initialData: offers });
   return (
     <Layout>
       <div className="grid gap-5 lg:gap-20 lg:grid-cols-12">
@@ -39,7 +42,7 @@ const Home = ({ offers }) => {
             </select>
           </div>
           <div className="flex flex-col gap-6">
-            {offers.map((offer) => (
+            {data.map((offer) => (
               <Offer {...offer} key={offer.id} />
             ))}
           </div>
