@@ -1,11 +1,30 @@
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Checkbox from 'components/Checkbox';
 
 const AddOffer = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [formProcessing, setFormProcessing] = useState(false);
+  const router = useRouter();
+
+  const onSubmit = async (data) => {
+    if (formProcessing) return;
+
+    setFormProcessing(true);
+    await fetch('/api/offers', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    router.push('/offers/thanks');
+  };
+
   return (
     <Layout>
       <div className="bg-white p-10 w-full max-w-screen-xl mx-auto">
@@ -19,8 +38,8 @@ const AddOffer = () => {
             <Input
               type="text"
               placeholder="Front-end developer"
-              name="job-title"
-              id="job-title"
+              name="title"
+              id="title"
               register={register}
             />
           </div>
@@ -42,7 +61,8 @@ const AddOffer = () => {
             <span className="text-lg font-medium block mb-3">Job type</span>
             <select
               className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300"
-              {...register('job-type')}>
+              name="type"
+              {...register('type')}>
               <option value="full-time">Full Time</option>
               <option value="part-time">Part Time</option>
             </select>
@@ -62,7 +82,7 @@ const AddOffer = () => {
             <span className="text-lg font-medium block mb-3">Employment type</span>
             <select
               className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300"
-              {...register('employment-type')}>
+              {...register('employmentType')}>
               <option value="b2b">B2B</option>
               <option value="permanent">Permanent</option>
               <option value="mandate-contract">Mandate Contract</option>
@@ -72,7 +92,7 @@ const AddOffer = () => {
             <span className="text-lg font-medium block mb-3">Flexible hours</span>
             <select
               className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300"
-              {...register('flexible-hours')}>
+              {...register('flexibleHours')}>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
@@ -81,7 +101,7 @@ const AddOffer = () => {
             <span className="text-lg font-medium block mb-3">Remote possible</span>
             <select
               className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300"
-              {...register('remote-possible')}>
+              {...register('remotePossible')}>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
@@ -90,7 +110,7 @@ const AddOffer = () => {
             <span className="text-lg font-medium block mb-3">Paid holiday</span>
             <select
               className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300"
-              {...register('paid-holiday')}>
+              {...register('paidHoliday')}>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
@@ -99,14 +119,14 @@ const AddOffer = () => {
             <span className="text-lg font-medium block mb-3">Online interview</span>
             <select
               className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300"
-              {...register('online-interview')}>
+              {...register('onlineInterview')}>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
           </div>
 
           <fieldset className="col-span-12">
-            <legend className="text-lg font-medium block mb-3">Experience</legend>
+            <legend className="text-lg font-medium block mb-3">Skills</legend>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
               <Checkbox value="React" label="React" name="skills" register={register} />
               <Checkbox value="Vue" label="Vue" name="skills" register={register} />
@@ -126,8 +146,9 @@ const AddOffer = () => {
 
           <button
             type="submit"
-            className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg col-span-12 sm:col-span-6 lg:col-span-3 mt-10">
-            Add offer
+            disabled={formProcessing}
+            className="disabled:opacity-50 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg col-span-12 sm:col-span-6 lg:col-span-3 mt-10">
+            {formProcessing ? 'Please wait...' : 'Add offer'}
           </button>
         </form>
       </div>

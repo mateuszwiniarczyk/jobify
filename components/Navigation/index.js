@@ -25,7 +25,7 @@ const Navigation = () => {
             hidden: !isOpen
           })}>
           <li className="w-full flex lg:inline-flex lg:w-auto">
-            <Link href="/add-offer">
+            <Link href="/offers/add-offer">
               <a className="w-full py-2 lg:w-auto lg:py-0">Add offer</a>
             </Link>
           </li>

@@ -8,7 +8,7 @@ const employmentTypes = [
     label: 'Permanent'
   },
   {
-    value: 'mandate-contract',
+    value: 'mandateContract',
     label: 'Mandate Contract'
   }
 ];

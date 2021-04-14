@@ -16,10 +16,10 @@ const OffersFilterForm = ({ filtersStatus }) => {
       <div>
         <span className="text-lg font-medium block mb-3">Job Title</span>
         <Input
-          id="job-title"
+          id="jobTitle"
           type="text"
           placeholder="Front-end developer"
-          name="job-title"
+          name="jobTitle"
           register={register}
         />
       </div>
@@ -32,7 +32,7 @@ const OffersFilterForm = ({ filtersStatus }) => {
         <legend className="text-lg font-medium block mb-3">Job type</legend>
 
         {jobTypes.map(({ value, label }) => (
-          <Checkbox value={value} label={label} name="job-type" key={value} register={register} />
+          <Checkbox value={value} label={label} name="jobType" key={value} register={register} />
         ))}
       </fieldset>
 
