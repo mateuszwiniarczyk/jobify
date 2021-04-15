@@ -7,14 +7,16 @@ import Checkbox from 'components/Checkbox';
 
 const AddOffer = () => {
   const { register, handleSubmit } = useForm();
+  const [error, setError] = useState();
   const [formProcessing, setFormProcessing] = useState(false);
   const router = useRouter();
 
   const onSubmit = async (data) => {
     if (formProcessing) return;
-
+    setError(null);
     setFormProcessing(true);
-    await fetch('/api/offers', {
+
+    const response = await fetch('/api/offers', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {
@@ -22,7 +24,15 @@ const AddOffer = () => {
       }
     });
 
-    router.push('/offers/thanks');
+    console.log(response);
+
+    if (response.ok) {
+      router.push('/offers/thanks');
+    } else {
+      const payload = await response.json();
+      setFormProcessing(false);
+      setError(payload.error?.details[0]?.message);
+    }
   };
 
   return (
@@ -150,6 +160,14 @@ const AddOffer = () => {
             className="disabled:opacity-50 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg col-span-12 sm:col-span-6 lg:col-span-3 mt-10">
             {formProcessing ? 'Please wait...' : 'Add offer'}
           </button>
+
+          {error && (
+            <div className="block justify-center w-full my-5 col-span-12">
+              <span className="block bg-red-600 w-full rounded text-white text-center p-5">
+                Offer not added: {error}
+              </span>
+            </div>
+          )}
         </form>
       </div>
     </Layout>
