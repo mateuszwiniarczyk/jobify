@@ -1,7 +1,7 @@
 const signUp = [
   {
     label: 'Company Name',
-    name: 'company',
+    name: 'name',
     placeholder: 'Acme Corporation',
     type: 'text'
   },
@@ -15,6 +15,12 @@ const signUp = [
     label: 'Password',
     name: 'password',
     placeholder: 'Your Password',
+    type: 'password'
+  },
+  {
+    label: 'Confirm password',
+    name: 'passwordConfirm',
+    placeholder: 'Repeat your password',
     type: 'password'
   }
 ];

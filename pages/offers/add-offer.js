@@ -24,8 +24,6 @@ const AddOffer = () => {
       }
     });
 
-    console.log(response);
-
     if (response.ok) {
       router.push('/offers/thanks');
     } else {

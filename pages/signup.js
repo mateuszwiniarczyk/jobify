@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Label from 'components/Label';
@@ -8,7 +10,45 @@ import { signUp } from 'data/forms';
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const [error, setError] = useState();
+  const [formProcessing, setFormProcessing] = useState(false);
+  const router = useRouter();
+
+  const onSubmit = async (data) => {
+    if (formProcessing) return;
+    setError(null);
+    setFormProcessing(true);
+
+    if (data.password !== data.passwordConfirm) {
+      setError('Given passwords not match');
+      setFormProcessing(false);
+      return;
+    }
+
+    const payload = {
+      name: data.name,
+      password: data.password,
+      email: data.email
+    };
+
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      router.push('/');
+    } else {
+      const payload = await response.json();
+      setFormProcessing(false);
+      setError(payload.message);
+    }
+  };
+
   return (
     <Layout>
       <div className="flex items-center justify-center flex-grow">
@@ -31,8 +71,9 @@ const Login = () => {
             ))}
 
             <button
-              type="button"
-              className="w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
+              type="submit"
+              disabled={formProcessing}
+              className="disabled:opacity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
               Sign up
             </button>
 
@@ -45,6 +86,13 @@ const Login = () => {
               </Link>
             </p>
           </form>
+          {error && (
+            <div className="block justify-center w-full my-5 col-span-12">
+              <span className="block bg-red-600 w-full rounded text-white text-center p-5">
+                {error}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
