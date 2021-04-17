@@ -2,7 +2,7 @@ import airDB from 'services/airtableClient';
 
 const get = async (id) => {
   const offers = await airDB('offers')
-    .select({ filterByFormula: `id=${id}` })
+    .select({ filterByFormula: `id="${id}"` })
     .firstPage();
 
   if (offers && offers[0]) {

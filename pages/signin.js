@@ -1,14 +1,39 @@
 import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/client';
 import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Label from 'components/Label';
 
-import { signIn } from 'data/forms';
+import { signIn as signInData } from 'data/forms';
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const [error, setError] = useState();
+  const [formProcessing, setFormProcessing] = useState(false);
+  const router = useRouter();
+
+  const onSubmit = async (data) => {
+    if (formProcessing) return;
+    setError(null);
+    setFormProcessing(true);
+
+    const { ok } = await signIn('credentials', {
+      redirect: false,
+      email: data.email,
+      password: data.password
+    });
+
+    if (ok) {
+      router.push('/');
+    } else {
+      setError('Not authorized. Try again.');
+    }
+
+    setFormProcessing(false);
+  };
   return (
     <Layout>
       <div className="flex items-center justify-center flex-grow">
@@ -17,7 +42,7 @@ const Login = () => {
           <p className="text-gray-500 text-center">Sign in to access your account</p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="mt-7">
-            {signIn.map(({ label, name, placeholder, type }) => (
+            {signInData.map(({ label, name, placeholder, type }) => (
               <div className="mb-6" key={name}>
                 <Label htmlFor={name} label={label} />
                 <Input
@@ -32,7 +57,8 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
+              disabled={formProcessing}
+              className="disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
               Sign in
             </button>
             <p className="text-sm text-center text-gray-400">
@@ -44,6 +70,13 @@ const Login = () => {
               </Link>
             </p>
           </form>
+          {error && (
+            <div className="block justify-center w-full my-5 col-span-12">
+              <span className="block bg-red-600 w-full rounded text-white text-center p-5">
+                {error}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </Layout>

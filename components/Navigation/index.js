@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
+import { signOut, useSession } from 'next-auth/client';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [session, loading] = useSession();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -34,21 +36,30 @@ const Navigation = () => {
               <a className="w-full py-2 lg:w-auto lg:py-0">Home</a>
             </Link>
           </li>
-          <li className="w-full flex lg:inline-flex lg:w-auto">
-            <Link href="/signin">
-              <a className="w-full py-2 lg:w-auto lg:py-0">Sign in</a>
-            </Link>
-          </li>
-          <li className="w-full flex lg:inline-flex lg:w-auto">
-            <Link href="/signup">
-              <a className="w-full py-2 lg:w-auto lg:py-0">Sign up</a>
-            </Link>
-          </li>
+          {!session && !loading && (
+            <li className="w-full flex lg:inline-flex lg:w-auto">
+              <Link href="/signin">
+                <a className="w-full py-2 lg:w-auto lg:py-0">Sign in</a>
+              </Link>
+            </li>
+          )}
+          {!session && !loading && (
+            <li className="w-full flex lg:inline-flex lg:w-auto">
+              <Link href="/signup">
+                <a className="w-full py-2 lg:w-auto lg:py-0">Sign up</a>
+              </Link>
+            </li>
+          )}
           <li className="w-full flex lg:inline-flex lg:ml-3 lg:w-auto">
             <Link href="/admin">
               <a className="w-full py-2 lg:w-auto lg:py-0">Admin</a>
             </Link>
           </li>
+          {session && (
+            <a onClick={signOut} className="w-full py-2 lg:w-auto lg:py-0">
+              Logout
+            </a>
+          )}
         </ul>
       </div>
     </nav>
