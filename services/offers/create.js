@@ -19,13 +19,14 @@ const schema = Joi.object({
   //   description: Joi.string().required()
 });
 
-const create = async (payload) => {
+const create = async (payload, userId) => {
   const validateOffer = await schema.validateAsync(payload);
   const offer = await airDB('offers').create([
     {
       fields: {
         ...validateOffer,
         status: 'inactive',
+        users: [userId],
         company: 'Facebook'
       }
     }

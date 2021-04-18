@@ -1,15 +1,23 @@
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Checkbox from 'components/Checkbox';
+import { useSession } from 'next-auth/client';
 
 const AddOffer = () => {
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState();
   const [formProcessing, setFormProcessing] = useState(false);
   const router = useRouter();
+  const [session, loading] = useSession();
+
+  useEffect(() => {
+    if (!session && !loading) {
+      router.push('/signin');
+    }
+  }, [session, loading]);
 
   const onSubmit = async (data) => {
     if (formProcessing) return;
@@ -32,6 +40,14 @@ const AddOffer = () => {
       setError(payload.error?.details[0]?.message);
     }
   };
+
+  if (loading) {
+    return <Layout>Loading...</Layout>;
+  }
+
+  if (!loading && !session) {
+    return <Layout>Redirecting...</Layout>;
+  }
 
   return (
     <Layout>
