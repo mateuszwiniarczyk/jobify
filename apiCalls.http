@@ -6,3 +6,9 @@ content-type: application/json
     "password": "test123",
     "name": "Facebook"
 }
+
+
+###
+GET http://localhost:3000/api/offers/paginate?location=Warsaw
+
+

@@ -3,13 +3,22 @@ import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import Checkbox from 'components/Checkbox';
 import Input from 'components/Input';
+import { useRouter } from 'next/router';
 import { employmentTypes, experience, jobTypes } from 'data/filters';
 
 const OffersFilterForm = ({ filtersStatus }) => {
+  const router = useRouter();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if (data.location) {
+      router.push(`?location=${data.location}`);
+    } else {
+      router.push('/');
+    }
+  };
   return (
     <form
+      onSubmit={handleSubmit(onSubmit)}
       className={classNames('mt-6 lg:mt-0 lg:block', {
         hidden: !filtersStatus
       })}>
