@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Offer = ({ company, location, salary, title, type }) => (
-  <Link href="/offers/offer">
+const Offer = ({ id, company, location, salary, title, type }) => (
+  <Link href={`/offers/${id}`}>
     <a className="flex items-center bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10">
       <picture className="w-12 h-12">
         <img

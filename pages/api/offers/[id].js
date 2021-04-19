@@ -25,7 +25,7 @@ export default async (req, res) => {
     case 'PUT': {
       try {
         const payload = req.body;
-        offer = await updateOffer(req.query.id, payload);
+        offer = await updateOffer(offer.airtableId, payload);
         res.status(200).json({ status: 'updated', offer });
       } catch (error) {
         res.status(422).json({ status: 'not_updated', error });

@@ -13,10 +13,6 @@ const schema = Joi.object({
   paidHoliday: Joi.string().required(),
   onlineInterview: Joi.string().required(),
   skills: Joi.array().items(Joi.string())
-  //   companyDescription: Joi.string().required(),
-  //   company: Joi.string().required(),
-  //   mobile: Joi.string().required(),
-  //   description: Joi.string().required()
 });
 
 const update = async (airtableId, payload) => {
