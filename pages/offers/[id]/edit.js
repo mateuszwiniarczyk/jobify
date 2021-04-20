@@ -11,7 +11,7 @@ import isAuthorized from 'services/offers/isAuthorized';
 export const getServerSideProps = async ({ req, query }) => {
   const session = await getSession({ req });
   const offer = await getOfferById(query.id);
-  console.log(!isAuthorized(offer, session));
+
   if (!isAuthorized(offer, session) || !offer) {
     return {
       notFound: true
@@ -35,7 +35,7 @@ const EditOffer = ({ offer }) => {
     if (formProcessing) return;
     setError(null);
     setFormProcessing(true);
-    console.log('data', data);
+
     const response = await fetch(`/api/offers/${offer.id}`, {
       method: 'PUT',
       body: JSON.stringify(data),

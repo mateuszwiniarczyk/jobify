@@ -120,7 +120,7 @@ const Offer = ({ offer }) => {
             <li>Phone: 123-456-789</li>
             <li>E-mail: company@example.com</li>
           </ul>
-          {console.log(isAuthorized(offer, session))}
+
           {isAuthorized(offer, session) && (
             <p>
               <Link href={`/offers/${offer.id}/edit`}>Edit this offer</Link>
