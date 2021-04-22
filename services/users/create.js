@@ -5,7 +5,8 @@ import crypto from 'crypto';
 const schema = Joi.object({
   email: Joi.string().email().required(),
   name: Joi.string().required(),
-  password: Joi.string().required()
+  password: Joi.string().required(),
+  imageUrl: Joi.string().required()
 });
 
 const checkEmail = async (email) => {
@@ -19,7 +20,7 @@ const checkEmail = async (email) => {
 };
 
 const create = async (payload) => {
-  const { email, name, password } = await schema.validateAsync(payload);
+  const { email, name, password, imageUrl } = await schema.validateAsync(payload);
 
   await checkEmail(email);
 
@@ -35,6 +36,7 @@ const create = async (payload) => {
         name,
         passwordSalt,
         passwordHash,
+        imageUrl,
         role: 'regular',
         type: 'company'
       }

@@ -5,14 +5,16 @@ import { useState } from 'react';
 import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Label from 'components/Label';
+import { uploadImage } from 'utils';
 
 import { signUp } from 'data/forms';
 
-const Login = () => {
+const SignUp = () => {
   const { register, handleSubmit } = useForm();
 
   const [error, setError] = useState();
   const [formProcessing, setFormProcessing] = useState(false);
+  const [imagePreviewUrl, setImagePreview] = useState('');
   const router = useRouter();
 
   const onSubmit = async (data) => {
@@ -26,10 +28,14 @@ const Login = () => {
       return;
     }
 
+    console.log(data);
+    const file = await uploadImage(data.picture[0]);
+
     const payload = {
       name: data.name,
       password: data.password,
-      email: data.email
+      email: data.email,
+      imageUrl: file.secure_url
     };
 
     const response = await fetch('/api/users', {
@@ -49,6 +55,11 @@ const Login = () => {
     }
   };
 
+  const handleImagePreview = (e) => {
+    const url = window.URL.createObjectURL(e.target.files[0]);
+    setImagePreview(url);
+  };
+
   return (
     <Layout>
       <div className="flex items-center justify-center flex-grow">
@@ -57,6 +68,25 @@ const Login = () => {
           <p className="text-gray-500 text-center">Create an account for your company</p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="mt-7">
+            {imagePreviewUrl && (
+              <div className="p-2 w-full">
+                <img src={imagePreviewUrl} className="rounded" alt="Logo" width="75" height="75" />
+              </div>
+            )}
+
+            <div className="p2 w-full">
+              <div className="relative">
+                <label htmlFor="picture" className="leading-7 text-sm text-gray-600">
+                  Picture
+                </label>
+                <input
+                  {...register(`picture`)}
+                  id="picture"
+                  onChange={handleImagePreview}
+                  type="file"
+                />
+              </div>
+            </div>
             {signUp.map(({ label, name, placeholder, type }) => (
               <div className="mb-6" key={name}>
                 <Label htmlFor={name} label={label} />
@@ -99,4 +129,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

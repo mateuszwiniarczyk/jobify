@@ -39,11 +39,11 @@ const Offer = ({ offer }) => {
       <div className="flex flex-col gap-10 items-start lg:gap-20 lg:flex-row lg:max-w-7xl lg:mx-auto">
         <div className="flex flex-col gap-5 bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10 lg:w-8/12">
           <div className="flex items-start gap-5">
-            <picture className="rounded-full">
+            <picture className="">
               <img
-                src="http://pngimg.com/uploads/google/google_PNG19635.png"
+                src={offer.companyLogo}
                 alt="logo"
-                className="object-cover w-16 h-16"
+                className="object-cover w-16 h-16 rounded-full"
               />
             </picture>
             <div className="flex-grow">
@@ -51,7 +51,7 @@ const Offer = ({ offer }) => {
                 <h2 className="text-2xl font-semibold">{offer.title}</h2>
                 <span className="hidden lg:inline-block text-gray-500">3 days ago</span>
               </div>
-              <span className="text-blue-600 font-semibold inline-block">Facebook</span>
+              <span className="text-blue-600 font-semibold inline-block">{offer.companyName}</span>
             </div>
           </div>
           <div>
