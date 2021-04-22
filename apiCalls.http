@@ -25,4 +25,27 @@ content-type: application/json
     "quantity": 1
 }
 
+###
+POST http://localhost:3000/api/users/resetPassword
+content-type: application/json
 
+{
+    "email": "twitter@gmail.com"
+}
+
+###
+POST http://localhost:3000/api/users/resetPassword
+content-type: application/json
+
+{
+    "email": "twitter@gmail.com"
+}
+
+###
+PUT http://localhost:3000/api/users/resetPassword
+content-type: application/json
+
+{
+    "resetToken": "cdfa11e1c55b2d019287be9d9d5248d6c4354ce8ed16",
+    "password": "test456"
+}
