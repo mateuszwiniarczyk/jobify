@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import timeago from 'epoch-timeago';
 
-const Offer = ({ id, companyLogo, companyName, location, salary, title, type }) => (
+const Offer = ({ id, companyLogo, companyName, location, salary, title, type, createdAt }) => (
   <Link href={`/offers/${id}`}>
     <a className="flex items-center bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10">
       <picture className="w-16 h-16">
@@ -23,7 +24,7 @@ const Offer = ({ id, companyLogo, companyName, location, salary, title, type }) 
         </div>
         <div className="lg:ml-auto flex flex-row items-center justify-between lg:justify-start lg:flex-col lg:items-end gap-3">
           <span className="inline-block text-blue-600 lg:text-2xl leading-none">${salary}</span>
-          <span className="text-sm text-gray-500">3 hours ago</span>
+          <span className="text-sm text-gray-500">{timeago(new Date(createdAt))}</span>
         </div>
       </div>
     </a>

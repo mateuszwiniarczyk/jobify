@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useSession } from 'next-auth/client';
 import isAuthorized from 'services/offers/isAuthorized';
+import timeago from 'epoch-timeago';
 
 export const getStaticPaths = async () => {
   const offers = await getRecentOffers(2);
@@ -49,7 +50,9 @@ const Offer = ({ offer }) => {
             <div className="flex-grow">
               <div className="flex items-center justify-between w-full mb-2">
                 <h2 className="text-2xl font-semibold">{offer.title}</h2>
-                <span className="hidden lg:inline-block text-gray-500">3 days ago</span>
+                <span className="hidden lg:inline-block text-gray-500">
+                  {timeago(new Date(offer.createdAt))}
+                </span>
               </div>
               <span className="text-blue-600 font-semibold inline-block">{offer.companyName}</span>
             </div>

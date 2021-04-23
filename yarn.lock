@@ -1134,6 +1134,11 @@ enquirer@^2.3.5:
   dependencies:
     ansi-colors "^4.1.1"
 
+epoch-timeago@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/epoch-timeago/-/epoch-timeago-1.1.9.tgz#bbbcccdba585ead38e1dae0e757f545bea303191"
+  integrity sha512-yzU3tG9YfvlImtgWjQM753F8+VRHFfUge2Bs++DNOEu5dzK2mX+lRBXSWUQEKGBi4b7WNJHIlQVuCmvp24j14A==
+
 es-abstract@^1.18.0-next.1, es-abstract@^1.18.0-next.2:
   version "1.18.0"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.18.0.tgz"
