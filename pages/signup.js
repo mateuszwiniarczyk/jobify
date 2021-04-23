@@ -28,7 +28,6 @@ const SignUp = () => {
       return;
     }
 
-    console.log(data);
     const file = await uploadImage(data.picture[0]);
 
     const payload = {

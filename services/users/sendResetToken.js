@@ -48,8 +48,6 @@ const sendResetToken = async (payload) => {
         `
   });
 
-  console.log(process.env.NODE_ENV);
-
   if (process.env.NODE_ENV !== 'production') {
     console.log(`E-mail sent, Preview URL:, ${nodemailer.getTestMessageUrl(response)}`);
   }

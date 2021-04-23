@@ -12,7 +12,6 @@ export const getServerSideProps = async ({ req, query }) => {
       notFound: true
     };
   }
-  console.log('xd');
 
   return {
     props: {

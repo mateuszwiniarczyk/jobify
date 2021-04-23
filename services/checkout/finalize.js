@@ -12,7 +12,7 @@ const finalize = async (offerId) => {
   }
 
   const paymentIntent = await stripe.paymentIntents.retrieve(checkout.payment_intent);
-  console.log(new Date(Date.now() + 1000 * 60 * 60 * 24 * offer.highlightDuration));
+
   if (paymentIntent.status === 'succeeded') {
     offer = await airDB('offers').update([
       {
@@ -23,7 +23,7 @@ const finalize = async (offerId) => {
         }
       }
     ]);
-    return { offer, checkout };
+    return { offer: offer[0].fields, checkout };
   }
   return { offer, checkout };
 };

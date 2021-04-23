@@ -14,7 +14,7 @@ const createCheckout = async (payload) => {
   const orderItem = await schema.validateAsync(payload);
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
   const product = await getProduct(orderItem.id);
-  console.log(product);
+
   const lineItems = [
     {
       price_data: {
@@ -31,8 +31,6 @@ const createCheckout = async (payload) => {
       quantity: orderItem.quantity
     }
   ];
-
-  console.log(process);
 
   const paymentObject = {
     payment_method_types: ['card', 'p24'],

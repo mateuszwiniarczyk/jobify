@@ -35,7 +35,7 @@ export default function HighlightOffer({ offer, products }) {
   const onSubmit = async (data) => {
     if (formProcessing) return;
     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
-    console.log(data);
+
     setError(null);
     setFormProcessing(true);
 
