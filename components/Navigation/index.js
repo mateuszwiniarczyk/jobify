@@ -26,14 +26,14 @@ const Navigation = () => {
           className={classNames('w-full lg:inline-flex lg:gap-3 lg:w-auto', {
             hidden: !isOpen
           })}>
-          <li className="w-full flex lg:inline-flex lg:w-auto">
-            <Link href="/offers/add-offer">
-              <a className="w-full py-2 lg:w-auto lg:py-0">Add offer</a>
-            </Link>
-          </li>
           <li className="w-full flex lg:inline-flex lg:ml-3 lg:w-auto">
             <Link href="/">
               <a className="w-full py-2 lg:w-auto lg:py-0">Home</a>
+            </Link>
+          </li>
+          <li className="w-full flex lg:inline-flex lg:w-auto">
+            <Link href="/offers/add-offer">
+              <a className="w-full py-2 lg:w-auto lg:py-0">Add offer</a>
             </Link>
           </li>
           {!session && !loading && (

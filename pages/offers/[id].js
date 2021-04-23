@@ -39,7 +39,7 @@ const Offer = ({ offer }) => {
       <div className="flex flex-col gap-10 items-start lg:gap-20 lg:flex-row lg:max-w-7xl lg:mx-auto">
         <div className="flex flex-col gap-5 bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10 lg:w-8/12">
           <div className="flex items-start gap-5">
-            <picture className="">
+            <picture>
               <img
                 src={offer.companyLogo}
                 alt="logo"

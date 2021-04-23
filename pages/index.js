@@ -63,7 +63,9 @@ const Home = ({ offers, offset }) => {
         </div>
         <div className="lg:col-span-9">
           <div className="flex justify-between items-center mb-3 lg:mb-6">
-            <span className="font-medium lg:text-xl">18723 Jobs</span>
+            <span className="font-medium lg:text-xl">
+              {currentOffers && currentOffers.length && `${currentOffers.length} Jobs`}
+            </span>
             <select className="block border-0 bg-transparent">
               {sortingTypes.map((sortingType) => (
                 <option key={sortingType}>{sortingType}</option>

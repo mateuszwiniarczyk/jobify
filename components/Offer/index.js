@@ -1,15 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Offer = ({ id, company, location, salary, title, type }) => (
+const Offer = ({ id, companyLogo, companyName, location, salary, title, type }) => (
   <Link href={`/offers/${id}`}>
     <a className="flex items-center bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10">
-      <picture className="w-12 h-12">
-        <img
-          src="https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512"
-          alt="logo"
-          className="object-cover"
-        />
+      <picture className="w-16 h-16">
+        <img src={companyLogo} alt="logo" className="object-cover rounded-full w-100" />
       </picture>
 
       <div className="ml-6 flex flex-col lg:flex-row w-full lg:items-center">
@@ -21,7 +17,7 @@ const Offer = ({ id, company, location, salary, title, type }) => (
             </span>
           </div>
           <ul className="hidden lg:flex lg:gap-6">
-            <li className="text-blue-600 font-semibold">{company}</li>
+            <li className="text-blue-600 font-semibold">{companyName}</li>
             <li>{location}</li>
           </ul>
         </div>

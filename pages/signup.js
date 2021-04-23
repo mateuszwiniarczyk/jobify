@@ -55,6 +55,7 @@ const SignUp = () => {
   };
 
   const handleImagePreview = (e) => {
+    if (!e.target.files[0]) return setImagePreview(null);
     const url = window.URL.createObjectURL(e.target.files[0]);
     setImagePreview(url);
   };

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
+import Input from 'components/Input';
+import Label from 'components/Label';
 
 const ResetPassword = () => {
   const { register, handleSubmit } = useForm();
@@ -40,12 +42,23 @@ const ResetPassword = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="email" {...register(`email`)} id="password" placeholder="E-mail" />
-        <button type="submit">Reset password</button>
-      </form>
-      {confirmation && <div>{confirmation}</div>}
-      {error && <div>{error}</div>}
+      <div className="flex items-center justify-center flex-grow">
+        <div className="bg-white w-full p-5 max-w-lg shadow rounded lg:p-10">
+          <h1 className="my-3 text-3xl font-semibold text-gray-700 text-center">Sign in</h1>
+          <p className="text-gray-500 text-center">Sign in to access your account</p>
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-7">
+            <Label label="E-mail" />
+            <Input type="email" name="email" register={register} placeholder="E-mail" />
+            <button
+              type="submit"
+              className="mt-5 disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
+              Reset password
+            </button>
+          </form>
+          {confirmation && <div>{confirmation}</div>}
+          {error && <div>{error}</div>}
+        </div>
+      </div>
     </Layout>
   );
 };
