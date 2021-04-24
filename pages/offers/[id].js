@@ -125,9 +125,19 @@ const Offer = ({ offer }) => {
           </ul>
 
           {isAuthorized(offer, session) && (
-            <p>
-              <Link href={`/offers/${offer.id}/edit`}>Edit this offer</Link>
-            </p>
+            <>
+              <Link href={`/offers/${offer.id}/edit`}>
+                <a className="block w-full mt-10 px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 text-center">
+                  Edit this offer
+                </a>
+              </Link>
+
+              <Link href={`/offers/${offer.id}/highlight`}>
+                <a className="block w-full mt-10 px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 text-center">
+                  Highlight this offer
+                </a>
+              </Link>
+            </>
           )}
         </div>
       </div>

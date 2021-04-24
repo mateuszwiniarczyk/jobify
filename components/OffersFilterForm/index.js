@@ -19,7 +19,7 @@ const OffersFilterForm = ({ filtersStatus }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={classNames('mt-6 lg:mt-0 lg:block', {
+      className={classNames('mt-6 lg:mt-0 lg:block bg-white px-7 py-10 shadow rounded-xl', {
         hidden: !filtersStatus
       })}>
       <div>

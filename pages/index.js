@@ -51,7 +51,7 @@ const Home = ({ offers, offset }) => {
 
   return (
     <Layout>
-      <div className="grid gap-5 lg:gap-20 lg:grid-cols-12">
+      <div className="grid gap-5 lg:gap-10 lg:grid-cols-12">
         <div className="lg:col-span-3">
           <button
             type="button"
