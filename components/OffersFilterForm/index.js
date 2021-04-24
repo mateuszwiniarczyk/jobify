@@ -10,11 +10,29 @@ const OffersFilterForm = ({ filtersStatus }) => {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
+    console.log(data);
+
+    let url = '?';
     if (data.location) {
-      router.push(`?location=${data.location}`);
-    } else {
-      router.push('/');
+      url += `location=${data.location}&`;
     }
+
+    if (data.jobTitle) {
+      url += `jobTitle=${data.jobTitle}&`;
+    }
+
+    if (data.jobType) {
+      url += `jobType=${data.jobType}&`;
+    }
+
+    if (data.employment) {
+      url += `employmentType=${data.employment.join()}&`;
+    }
+
+    if (data.experience) {
+      url += `experience=${data.experience.join()}`;
+    }
+    router.push(url);
   };
   return (
     <form

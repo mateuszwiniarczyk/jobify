@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
-// import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import Layout from 'components/Layout';
 import Offer from 'components/Offer';
 import OffersFilterForm from 'components/OffersFilterForm';
-import { sortingTypes } from 'data/filters';
-// import getRecentOffers from 'services/offers/getRecent';
 import paginateOffers from 'services/offers/paginate';
 import { jsonFetcher } from 'utils';
 
@@ -21,7 +18,6 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ offers, offset }) => {
-  //   const { data } = useSWR('/api/offers', jsonFetcher, { initialData: offers });
   const { query } = useRouter();
   const [filtersStatus, setFiltersStatus] = useState(false);
   const [currentOffers, setOffers] = useState(offers);
@@ -34,10 +30,26 @@ const Home = ({ offers, offset }) => {
   };
 
   const handleFilters = async () => {
-    let filters = '';
+    let filters = '?';
 
     if (query.location) {
-      filters += `?location=${query.location}`;
+      filters += `location=${query.location}`;
+    }
+
+    if (query.jobTitle) {
+      filters += `&jobTitle=${query.jobTitle}`;
+    }
+
+    if (query.jobTitle) {
+      filters += `&jobType=${query.jobType}`;
+    }
+
+    if (query.employmentType) {
+      filters += `&employmentType=${query.employmentType}`;
+    }
+
+    if (query.experience) {
+      filters += `&experience=${query.experience}`;
     }
 
     const response = await jsonFetcher(`/api/offers/paginate${filters}`);
@@ -62,16 +74,6 @@ const Home = ({ offers, offset }) => {
           <OffersFilterForm filtersStatus={filtersStatus} />
         </div>
         <div className="lg:col-span-9">
-          <div className="flex justify-between items-center mb-3 lg:mb-6">
-            <span className="font-medium lg:text-xl">
-              {currentOffers && currentOffers.length && `${currentOffers.length} Jobs`}
-            </span>
-            <select className="block border-0 bg-transparent">
-              {sortingTypes.map((sortingType) => (
-                <option key={sortingType}>{sortingType}</option>
-              ))}
-            </select>
-          </div>
           <div className="flex flex-col gap-6">
             {currentOffers.map((offer) => (
               <Offer {...offer} key={offer.id} />
