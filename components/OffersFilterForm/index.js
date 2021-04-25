@@ -10,8 +10,6 @@ const OffersFilterForm = ({ filtersStatus }) => {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-
     let url = '?';
     if (data.location) {
       url += `location=${data.location}&`;

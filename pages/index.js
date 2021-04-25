@@ -40,7 +40,7 @@ const Home = ({ offers, offset }) => {
       filters += `&jobTitle=${query.jobTitle}`;
     }
 
-    if (query.jobTitle) {
+    if (query.jobType) {
       filters += `&jobType=${query.jobType}`;
     }
 

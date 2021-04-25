@@ -1,12 +1,9 @@
 const paginate = async (offset, location, jobTitle, jobType, employmentType, experience) => {
   let apiUrl = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/offers?pageSize=5&view=onlyActive`;
 
-  console.log(location, jobTitle, employmentType, experience);
   if (offset) {
     apiUrl += `&offset=${offset}`;
   }
-
-  console.log(location, jobTitle, employmentType, experience);
 
   if (location || jobTitle || jobType || employmentType || experience) {
     apiUrl += `&filterByFormula=AND(`;
