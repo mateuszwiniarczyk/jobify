@@ -26,8 +26,7 @@ const create = async (payload, userId) => {
       fields: {
         ...validateOffer,
         status: 'inactive',
-        users: [userId],
-        company: 'Facebook'
+        users: [userId]
       }
     }
   ]);

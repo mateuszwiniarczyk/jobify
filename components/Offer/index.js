@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import timeago from 'epoch-timeago';
+import moment from 'moment';
+import Badge from 'components/Badge';
 
 const Offer = ({ id, companyLogo, companyName, location, salary, title, type, createdAt }) => (
   <Link href={`/offers/${id}`}>
@@ -15,9 +16,11 @@ const Offer = ({ id, companyLogo, companyName, location, salary, title, type, cr
         <div className="lg:mr-12">
           <div className="flex items-center mb-3">
             <h2 className="lg:text-2xl leading-tight font-medium line-clamp-1 mr-6">{title}</h2>
-            <span className="ml-auto text-xs font-semibold inline-block py-1 px-2 rounded text-blue-600 bg-blue-100 min-w-max capitalize lg:ml-6">
-              {type}
-            </span>
+            <Badge
+              label={type}
+              size="xs"
+              additionalClasses="ml-auto lg:ml-6 capitalize min-w-max"
+            />
           </div>
           <ul className="hidden lg:flex lg:items-center lg:gap-6">
             <li className="text-blue-600 font-semibold">{companyName}</li>
@@ -28,7 +31,7 @@ const Offer = ({ id, companyLogo, companyName, location, salary, title, type, cr
           <span className="inline-block text-blue-600 leading-none lg:text-2xl">
             ${salary.toLocaleString('pl-PL')}
           </span>
-          <span className="text-sm text-gray-500">{timeago(new Date(createdAt))}</span>
+          <span className="text-sm text-gray-500">{moment(createdAt).fromNow()}</span>
         </div>
       </div>
     </a>
