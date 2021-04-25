@@ -58,7 +58,7 @@ const Offer = ({ offer }) => {
   return (
     <Layout>
       <div className="flex flex-col gap-10 items-start w-full lg:gap-20 lg:flex-row lg:max-w-7xl lg:mx-auto">
-        <div className="flex flex-col gap-10 bg-white rounded-xl shadow p-5 lg:py-8 w-full lg:px-10 lg:w-7/12 xl:w-8/12">
+        <div className="flex flex-col gap-10 bg-white rounded-xl shadow p-6 lg:py-8 w-full lg:px-10 lg:w-7/12 xl:w-8/12">
           <div className="flex items-start gap-5">
             <img src={companyLogo} alt="logo" className="object-cover w-16 h-16 rounded-full" />
             <div className="flex-grow">
@@ -89,8 +89,11 @@ const Offer = ({ offer }) => {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10 lg:w-5/12 xl:w-4/12">
-          <h3 className="text-4xl font-semibold">{salary.toLocaleString('pl-PL')}$</h3>
+        <div className="bg-white rounded-xl shadow p-6 w-auto lg:py-8 lg:px-10 lg:w-5/12 xl:w-4/12">
+          <span className="block text-center text-2xl font-semibold text-blue-600 mt-3">
+            {salary.toLocaleString('pl-PL')}$
+          </span>
+
           <OfferContact location={location} />
 
           {isAuthorized(offer, session) && (
