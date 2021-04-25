@@ -74,7 +74,7 @@ const Home = ({ offers, offset }) => {
           <OffersFilterForm filtersStatus={filtersStatus} />
         </div>
         <div className="lg:col-span-9">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-3 lg:gap-6">
             {currentOffers.map((offer) => (
               <Offer {...offer} key={offer.id} />
             ))}
@@ -82,7 +82,7 @@ const Home = ({ offers, offset }) => {
           {currentOffset && (
             <button
               type="button"
-              className="mx-auto block mt-10 px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+              className="mx-auto block mt-10 px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
               onClick={loadMore}>
               Load more
             </button>
