@@ -6,6 +6,12 @@ const signUp = [
     type: 'text'
   },
   {
+    label: 'About company',
+    name: 'aboutCompany',
+    placeholder: 'About your company',
+    type: 'textarea'
+  },
+  {
     label: 'Email Address',
     name: 'email',
     placeholder: 'you@company.com',
