@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
 import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/client';
+import Input from 'components/Input';
+import Label from 'components/Label';
 
 const UpdatePassword = () => {
   const { register, handleSubmit } = useForm();
@@ -55,17 +57,44 @@ const UpdatePassword = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="password" {...register(`password`)} id="password" placeholder="Password" />
-        <input
-          type="password"
-          {...register('passwordConfirm')}
-          id="passwordConfirm"
-          placeholder="Confirm password"
-        />
-        <button type="submit">Change password</button>
-      </form>
-      {error && <div>{error}</div>}
+      <div className="flex items-center justify-center flex-grow">
+        <div className="bg-white w-full p-5 max-w-lg shadow rounded lg:p-10">
+          <h1 className="my-3 text-3xl font-semibold text-gray-700 text-center">
+            Reset your password
+          </h1>
+          <p className="text-gray-500 text-center">
+            In order to reset your password, please provide e-mail
+          </p>
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-7">
+            <div>
+              <Label label="Password" />
+              <Input
+                type="password"
+                name="password"
+                register={register}
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <div className="mt-6">
+              <Label label="Confirm your password" />
+              <Input
+                type="password"
+                name="passwordConfirm"
+                register={register}
+                id="passwordConfirm"
+                placeholder="Confirm password"
+              />
+            </div>
+            <button
+              type="submit"
+              className="mt-5 disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
+              Change password
+            </button>
+          </form>
+          {error && <div>{error}</div>}
+        </div>
+      </div>
     </Layout>
   );
 };

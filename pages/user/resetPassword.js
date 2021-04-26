@@ -44,8 +44,12 @@ const ResetPassword = () => {
     <Layout>
       <div className="flex items-center justify-center flex-grow">
         <div className="bg-white w-full p-5 max-w-lg shadow rounded lg:p-10">
-          <h1 className="my-3 text-3xl font-semibold text-gray-700 text-center">Sign in</h1>
-          <p className="text-gray-500 text-center">Sign in to access your account</p>
+          <h1 className="my-3 text-3xl font-semibold text-gray-700 text-center">
+            Reset your password
+          </h1>
+          <p className="text-gray-500 text-center">
+            In order to reset your password, please provide e-mail
+          </p>
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-7">
             <Label label="E-mail" />
             <Input type="email" name="email" register={register} placeholder="E-mail" />
