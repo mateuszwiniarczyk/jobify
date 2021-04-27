@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import Checkbox from 'components/Checkbox';
 import Input from 'components/Input';
 import { useRouter } from 'next/router';
-import { employmentTypes, experience, jobTypes } from 'data/filters';
+import { employmentTypes, experienceTypes, jobTypes } from 'data/types';
 
 const OffersFilterForm = ({ filtersStatus }) => {
   const router = useRouter();
@@ -56,23 +56,44 @@ const OffersFilterForm = ({ filtersStatus }) => {
       <fieldset className="flex flex-col items-start mt-6 gap-1">
         <legend className="text-lg font-medium block mb-3">Job type</legend>
 
-        {jobTypes.map(({ value, label }) => (
-          <Checkbox value={value} label={label} name="jobType" key={value} register={register} />
+        {jobTypes.map((jobType) => (
+          <Checkbox
+            value={jobType}
+            label={jobType}
+            name="jobType"
+            key={jobType}
+            register={register}
+            additionalClasses="capitalize"
+          />
         ))}
       </fieldset>
 
       <fieldset className="flex flex-col items-start mt-6 gap-1">
         <legend className="text-lg font-medium block mb-3">Experience</legend>
 
-        {experience.map(({ value, label }) => (
-          <Checkbox value={value} label={label} name="experience" key={value} register={register} />
+        {experienceTypes.map((experienceType) => (
+          <Checkbox
+            value={experienceType}
+            label={experienceType}
+            name="experience"
+            key={experienceType}
+            register={register}
+            additionalClasses="capitalize"
+          />
         ))}
       </fieldset>
 
       <fieldset className="flex flex-col items-start mt-6 gap-1">
         <legend className="text-lg font-medium block mb-3">Employment type</legend>
-        {employmentTypes.map(({ value, label }) => (
-          <Checkbox value={value} label={label} name="employment" key={value} register={register} />
+        {employmentTypes.map((employmentType) => (
+          <Checkbox
+            value={employmentType}
+            label={employmentType}
+            name="employment"
+            key={employmentType}
+            register={register}
+            additionalClasses="capitalize"
+          />
         ))}
       </fieldset>
 

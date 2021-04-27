@@ -64,7 +64,7 @@ const Home = ({ offers, offset }) => {
   return (
     <Layout>
       <div className="grid gap-5 lg:gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-4 xl:col-span-3">
           <button
             type="button"
             className="flex mx-auto py-2 px-5 bg-white border-gray-600 rounded-md shadow lg:hidden"
@@ -73,7 +73,7 @@ const Home = ({ offers, offset }) => {
           </button>
           <OffersFilterForm filtersStatus={filtersStatus} />
         </div>
-        <div className="lg:col-span-9">
+        <div className="lg:col-span-8 xl:col-span-9">
           <div className="flex flex-col gap-3 lg:gap-6">
             {currentOffers.map((offer) => (
               <Offer {...offer} key={offer.id} />

@@ -117,7 +117,7 @@ const Offer = ({ offer }) => {
         <div className="fixed bottom-0 left-0 right-0 bg-white shadow border border-t border-gray-300 rounded-xl p-6 w-auto mx-auto lg:static lg:border-none lg:py-8 lg:px-10 lg:mx-0 lg:w-5/12 xl:w-4/12">
           <Badge
             size="md"
-            label={`${salary.toLocaleString('pl-PL')} / yearly`}
+            label={`${salary.toLocaleString('pl-PL')}$ / yearly`}
             additionalClasses="w-full text-center text-xl"
           />
 
