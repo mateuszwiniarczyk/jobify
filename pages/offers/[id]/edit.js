@@ -37,7 +37,8 @@ const EditOffer = ({
     flexibleHours,
     remotePossible,
     paidHoliday,
-    onlineInterview
+    onlineInterview,
+    phone
   }
 }) => {
   const { register, handleSubmit } = useForm({
@@ -52,7 +53,8 @@ const EditOffer = ({
       flexibleHours,
       remotePossible,
       paidHoliday,
-      onlineInterview
+      onlineInterview,
+      phone
     }
   });
   const [error, setError] = useState();

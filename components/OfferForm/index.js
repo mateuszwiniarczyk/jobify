@@ -28,6 +28,10 @@ const OfferForm = ({ handleSubmit, onSubmit, register, formProcessing, submitLab
         <Input type="number" placeholder="1000" id="salary" register={register} name="salary" />
       </div>
       <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+        <Label htmlFor="phone" label="Phone" />
+        <Input type="tel" placeholder="Mobile phone" name="phone" id="phone" register={register} />
+      </div>
+      <div className="col-span-12 sm:col-span-6 lg:col-span-4">
         <Label htmlFor="type" label="Job type" />
         <select
           className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 capitalize"

@@ -12,7 +12,8 @@ const schema = Joi.object({
   remotePossible: Joi.string().required(),
   paidHoliday: Joi.string().required(),
   onlineInterview: Joi.string().required(),
-  skills: Joi.array().items(Joi.string())
+  skills: Joi.array().items(Joi.string()),
+  phone: Joi.number().required()
   //   companyDescription: Joi.string().required(),
   //   company: Joi.string().required(),
   //   mobile: Joi.string().required(),
