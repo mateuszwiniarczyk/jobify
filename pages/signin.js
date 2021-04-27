@@ -38,7 +38,7 @@ const Login = () => {
     <Layout>
       <div className="flex items-center justify-center flex-grow">
         <div className="bg-white w-full p-5 max-w-lg shadow rounded lg:p-10">
-          <h1 className="my-3 text-3xl font-semibold text-gray-700 text-center">Sign in</h1>
+          <h1 className="mb-3 text-3xl font-semibold text-gray-700 text-center">Sign in</h1>
           <p className="text-gray-500 text-center">Sign in to access your account</p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="mt-7">

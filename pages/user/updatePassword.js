@@ -59,7 +59,7 @@ const UpdatePassword = () => {
     <Layout>
       <div className="flex items-center justify-center flex-grow">
         <div className="bg-white w-full p-5 max-w-lg shadow rounded lg:p-10">
-          <h1 className="my-3 text-3xl font-semibold text-gray-700 text-center">
+          <h1 className="mb-3 text-3xl font-semibold text-gray-700 text-center">
             Reset your password
           </h1>
           <p className="text-gray-500 text-center">
