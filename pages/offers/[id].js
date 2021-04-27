@@ -38,6 +38,7 @@ const Offer = ({ offer }) => {
     title,
     createdAt,
     companyName,
+    aboutCompany,
     skills,
     type,
     employmentType,
@@ -74,7 +75,7 @@ const Offer = ({ offer }) => {
           </div>
           <div>
             <h3 className="text-lg font-semibold">About company</h3>
-            <p className="mt-3">Placeholder</p>
+            <p className="mt-3">{aboutCompany && aboutCompany}</p>
             <OfferSkills skills={skills} />
             <h3 className="text-lg font-semibold mt-7">Brief job description</h3>
             <p className="mt-3">Placeholder</p>

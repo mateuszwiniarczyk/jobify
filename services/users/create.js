@@ -6,7 +6,8 @@ const schema = Joi.object({
   email: Joi.string().email().required(),
   name: Joi.string().required(),
   password: Joi.string().required(),
-  imageUrl: Joi.string().required()
+  imageUrl: Joi.string().required(),
+  aboutCompany: Joi.string().required()
 });
 
 const checkEmail = async (email) => {
@@ -20,7 +21,7 @@ const checkEmail = async (email) => {
 };
 
 const create = async (payload) => {
-  const { email, name, password, imageUrl } = await schema.validateAsync(payload);
+  const { email, name, password, imageUrl, aboutCompany } = await schema.validateAsync(payload);
 
   await checkEmail(email);
 
@@ -37,6 +38,7 @@ const create = async (payload) => {
         passwordSalt,
         passwordHash,
         imageUrl,
+        aboutCompany,
         role: 'regular',
         type: 'company'
       }

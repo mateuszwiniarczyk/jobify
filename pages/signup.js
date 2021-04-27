@@ -36,6 +36,7 @@ const SignUp = () => {
       name: data.name,
       password: data.password,
       email: data.email,
+      aboutCompany: data.aboutCompany,
       imageUrl: file.secure_url
     };
 
@@ -87,7 +88,7 @@ const SignUp = () => {
 
               <div className="flex w-full items-center justify-center bg-grey-lighter">
                 <label
-                  className="flex items-center gap-3 px-4 py-3 bg-white text-base rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-blue-600 hover:text-white"
+                  className="relative flex items-center gap-3 px-4 py-3 bg-white text-base rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-blue-600 hover:text-white"
                   htmlFor="picture">
                   <svg
                     className="w-8 h-8"
@@ -99,7 +100,7 @@ const SignUp = () => {
                   <span className="leading-normal">Select your logo</span>
                   <input
                     {...register(`picture`)}
-                    className="hidden"
+                    className="absolute top-0 left-0 bottom-0 right-0 opacity-0 w-full"
                     onChange={handleImagePreview}
                     id="picture"
                     type="file"
