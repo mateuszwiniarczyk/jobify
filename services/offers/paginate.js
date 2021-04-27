@@ -1,5 +1,5 @@
 const paginate = async (offset, location, jobTitle, jobType, employmentType, experience) => {
-  let apiUrl = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/offers?pageSize=5&view=onlyActive`;
+  let apiUrl = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/offers?pageSize=5&view=onlyActive&sort[0][field]=highlightTill&sort[0][direction]=desc`;
 
   if (offset) {
     apiUrl += `&offset=${offset}`;
