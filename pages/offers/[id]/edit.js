@@ -38,7 +38,8 @@ const EditOffer = ({
     remotePossible,
     paidHoliday,
     onlineInterview,
-    phone
+    phone,
+    jobDescription
   }
 }) => {
   const { register, handleSubmit } = useForm({
@@ -54,7 +55,8 @@ const EditOffer = ({
       remotePossible,
       paidHoliday,
       onlineInterview,
-      phone
+      phone,
+      jobDescription
     }
   });
   const [error, setError] = useState();

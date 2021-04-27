@@ -2,11 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/client';
-import { skillsList } from 'data/forms';
 import Layout from 'components/Layout';
-import Label from 'components/Label';
-import Input from 'components/Input';
-import Checkbox from 'components/Checkbox';
 import OfferForm from 'components/OfferForm';
 
 const AddOffer = () => {

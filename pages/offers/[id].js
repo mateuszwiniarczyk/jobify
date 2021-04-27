@@ -38,6 +38,7 @@ const Offer = ({ offer }) => {
     title,
     createdAt,
     companyName,
+    companyEmail,
     aboutCompany,
     skills,
     type,
@@ -47,7 +48,9 @@ const Offer = ({ offer }) => {
     paidHoliday,
     onlineInterview,
     salary,
+    phone,
     location,
+    jobDescription,
     highlightTill
   } = offer;
   const router = useRouter();
@@ -78,7 +81,7 @@ const Offer = ({ offer }) => {
             <p className="mt-3">{aboutCompany && aboutCompany}</p>
             <OfferSkills skills={skills} />
             <h3 className="text-lg font-semibold mt-7">Brief job description</h3>
-            <p className="mt-3">Placeholder</p>
+            <p className="mt-3">{jobDescription}</p>
             <h3 className="text-lg font-semibold mt-7">Offer details</h3>
             <div className="flex flex-col gap-3 mt-3 max-w-sm capitalize">
               <Detail label="Job type" value={type} />
@@ -121,7 +124,7 @@ const Offer = ({ offer }) => {
             additionalClasses="w-full text-center text-xl"
           />
 
-          <OfferContact location={location} />
+          <OfferContact location={location} phone={phone} email={companyEmail} />
         </div>
       </div>
     </Layout>
