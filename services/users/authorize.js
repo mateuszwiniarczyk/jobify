@@ -1,6 +1,6 @@
 import airDB from 'services/airtableClient';
 import Joi from 'joi';
-import crypto from 'crypto';
+import { hashPassword } from 'utils';
 
 const schema = Joi.object({
   email: Joi.string().email().required(),
@@ -18,9 +18,7 @@ const authorize = async (payload) => {
     return null;
   }
 
-  const passwordHash = crypto
-    .pbkdf2Sync(password, user.fields.passwordSalt, 1000, 64, `sha512`)
-    .toString(`hex`);
+  const passwordHash = hashPassword(password, user.fields.passwordSalt);
 
   if (passwordHash !== user.fields.passwordHash) {
     return null;

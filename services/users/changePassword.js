@@ -1,6 +1,7 @@
 import airDB from 'services/airtableClient';
 import Joi from 'joi';
 import crypto from 'crypto';
+import { hashPassword } from 'utils';
 
 const schema = Joi.object({
   resetToken: Joi.string().required(),
@@ -19,9 +20,7 @@ const changePassword = async (payload) => {
   }
 
   const passwordSalt = crypto.randomBytes(16).toString('hex');
-  const passwordHash = crypto
-    .pbkdf2Sync(password, passwordSalt, 1000, 64, `sha512`)
-    .toString(`hex`);
+  const passwordHash = hashPassword(password, passwordSalt);
 
   user = await airDB('users').update([
     {
