@@ -88,8 +88,9 @@ const UpdatePassword = () => {
             </div>
             <button
               type="submit"
+              disabled={formProcessing}
               className="mt-5 disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
-              Change password
+              {formProcessing ? 'Please wait...' : 'Change password'}
             </button>
           </form>
           {error && <div>{error}</div>}

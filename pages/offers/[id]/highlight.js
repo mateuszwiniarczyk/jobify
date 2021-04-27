@@ -80,8 +80,11 @@ export default function HighlightOffer({ offer, products }) {
             </option>
           ))}
         </select>
-        <button type="submit" className="block mt-5">
-          Submit
+        <button
+          type="submit"
+          disabled={formProcessing}
+          className="disabled:opacity-50 text-white block mt-5 bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+          {formProcessing ? 'Please wait...' : 'Submit'}
         </button>
       </form>
     </Layout>

@@ -55,8 +55,9 @@ const ResetPassword = () => {
             <Input type="email" name="email" register={register} placeholder="E-mail" />
             <button
               type="submit"
+              disabled={formProcessing}
               className="mt-5 disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
-              Reset password
+              {formProcessing ? 'Please wait...' : 'Reset password'}
             </button>
           </form>
           {confirmation && <div>{confirmation}</div>}

@@ -133,7 +133,7 @@ const SignUp = () => {
               type="submit"
               disabled={formProcessing}
               className="disabled:opacity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
-              Sign up
+              {formProcessing ? 'Please wait...' : 'Sign up'}
             </button>
 
             <p className="text-sm text-center text-gray-400">
