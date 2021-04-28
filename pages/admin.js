@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Layout from 'components/Layout';
-import Link from 'next/link';
+import { useState } from 'react';
 import { getSession } from 'next-auth/client';
+import Link from 'next/link';
+import classNames from 'classnames';
 import paginateOffers from 'services/offers/allForAdmin';
 import { jsonFetcher } from 'utils';
-import classNames from 'classnames';
+import Layout from 'components/Layout';
 
 export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
@@ -102,7 +102,7 @@ const Admin = ({ offers, offset }) => {
                       <td className="py-3 px-6 text-center">
                         <div className="flex item-center justify-center">
                           <Link href={`/offers/${offer.id}`}>
-                            <div className="cursor-pointer w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                            <div className="cursor-pointer w-4 mr-2 transform hover:text-blue-500 hover:scale-110">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -124,7 +124,7 @@ const Admin = ({ offers, offset }) => {
                             </div>
                           </Link>
                           <Link href={`/offers/${offer.id}/edit`}>
-                            <div className="cursor-pointer w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+                            <div className="cursor-pointer w-4 mr-2 transform hover:text-blue-500 hover:scale-110">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
@@ -139,8 +139,9 @@ const Admin = ({ offers, offset }) => {
                               </svg>
                             </div>
                           </Link>
-                          <div
-                            className="cursor-pointer w-4 mr-2 transform hover:text-purple-500 hover:scale-110"
+                          <button
+                            type="button"
+                            className="cursor-pointer w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
                             onClick={() => deleteOffer(offer.id)}>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +155,7 @@ const Admin = ({ offers, offset }) => {
                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                               />
                             </svg>
-                          </div>
+                          </button>
                         </div>
                       </td>
                     </tr>

@@ -1,8 +1,8 @@
-import Layout from 'components/Layout';
 import { getSession } from 'next-auth/client';
+import Link from 'next/link';
+import Layout from 'components/Layout';
 import isAuthorized from 'services/offers/isAuthorized';
 import finalizeCheckout from 'services/checkout/finalize';
-import Link from 'next/link';
 
 export const getServerSideProps = async ({ req, query }) => {
   const session = await getSession({ req });

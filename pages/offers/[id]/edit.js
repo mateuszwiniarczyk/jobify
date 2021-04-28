@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import Layout from 'components/Layout';
 import { getSession } from 'next-auth/client';
+import Layout from 'components/Layout';
+import OfferForm from 'components/OfferForm';
 import getOfferById from 'services/offers/get';
 import isAuthorized from 'services/offers/isAuthorized';
-import OfferForm from 'components/OfferForm';
 
 export const getServerSideProps = async ({ req, query }) => {
   const session = await getSession({ req });

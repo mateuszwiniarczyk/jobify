@@ -1,6 +1,6 @@
+import { getSession } from 'next-auth/client';
 import getRecentOffers from 'services/offers/getRecent';
 import createOffer from 'services/offers/create';
-import { getSession } from 'next-auth/client';
 
 export default async (req, res) => {
   switch (req.method) {

@@ -1,8 +1,8 @@
+import { getSession } from 'next-auth/client';
 import updateOffer from 'services/offers/update';
 import deleteOffer from 'services/offers/delete';
 import getOfferById from 'services/offers/get';
 import isAuthorized from 'services/offers/isAuthorized';
-import { getSession } from 'next-auth/client';
 
 export default async (req, res) => {
   const session = await getSession({ req });

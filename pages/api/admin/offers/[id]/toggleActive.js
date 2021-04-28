@@ -1,5 +1,5 @@
-import toggleActive from 'services/offers/toggleActive';
 import { getSession } from 'next-auth/client';
+import toggleActive from 'services/offers/toggleActive';
 
 export default async (req, res) => {
   switch (req.method) {

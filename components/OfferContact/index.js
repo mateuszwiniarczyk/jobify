@@ -1,5 +1,3 @@
-import React from 'react';
-
 const OfferContact = ({ location, phone, email }) => (
   <>
     <h3 className="text-lg font-semibold mt-5 lg:mt-7">Contact with us</h3>

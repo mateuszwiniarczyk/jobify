@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { getSession } from 'next-auth/client';
 import { useForm } from 'react-hook-form';
+import { loadStripe } from '@stripe/stripe-js';
 import Layout from 'components/Layout';
 import getOfferById from 'services/offers/get';
 import isAuthorized from 'services/offers/isAuthorized';
 import getAllProducts from 'services/products/getAll';
-import { loadStripe } from '@stripe/stripe-js';
 
 export const getServerSideProps = async ({ req, query }) => {
   const session = await getSession({ req });
