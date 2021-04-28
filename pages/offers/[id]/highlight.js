@@ -67,26 +67,36 @@ export default function HighlightOffer({ offer, products }) {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto">
-        <select {...register('productId')}>
-          {products.map((product) => (
-            <option value={product.airtableId} key={product.airtableId}>
-              {product.name}
+      <div className="flex items-center justify-center flex-grow">
+        <div className="bg-white w-full p-5 max-w-lg shadow rounded lg:p-10">
+          <h1 className="mb-3 text-3xl font-semibold text-gray-700 text-center">
+            Highlight your offer
+          </h1>
+          <p className="text-gray-500 text-center">Highlight your offer to be more noticeable</p>
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mt-7">
+            <select
+              {...register('productId')}
+              className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 capitalize">
+              {products.map((product) => (
+                <option value={product.airtableId} key={product.airtableId}>
+                  {product.name}
 
-              {(product.priceCents / 100).toLocaleString('en-US', {
-                style: 'currency',
-                currency: product.priceCurrency
-              })}
-            </option>
-          ))}
-        </select>
-        <button
-          type="submit"
-          disabled={formProcessing}
-          className="disabled:opacity-50 text-white block mt-5 bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
-          {formProcessing ? 'Please wait...' : 'Submit'}
-        </button>
-      </form>
+                  {(product.priceCents / 100).toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: product.priceCurrency
+                  })}
+                </option>
+              ))}
+            </select>
+            <button
+              type="submit"
+              disabled={formProcessing}
+              className="disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mt-5">
+              {formProcessing ? 'Please wait...' : 'Submit'}
+            </button>
+          </form>
+        </div>
+      </div>
     </Layout>
   );
 }
