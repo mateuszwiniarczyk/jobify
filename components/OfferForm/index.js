@@ -17,6 +17,7 @@ const OfferForm = ({ handleSubmit, onSubmit, register, formProcessing, submitLab
           name="title"
           id="title"
           register={register}
+          validation={{ required: true, minLength: 2, maxLength: 20 }}
         />
       </div>
 
@@ -39,7 +40,6 @@ const OfferForm = ({ handleSubmit, onSubmit, register, formProcessing, submitLab
         <Label htmlFor="type" label="Job type" />
         <select
           className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 capitalize"
-          name="type"
           {...register('type')}>
           {jobTypes.map((jobType) => (
             <option value={jobType} key={jobType}>

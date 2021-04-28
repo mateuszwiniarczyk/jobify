@@ -10,9 +10,10 @@ import Badge from 'components/Badge';
 import Detail from 'components/Detail';
 import OfferSkills from 'components/OfferSkills';
 import OfferContact from 'components/OfferContact';
+import Loader from 'components/Loader';
 
 export const getStaticPaths = async () => {
-  const offers = await getRecentOffers(50);
+  const offers = await getRecentOffers(5);
 
   return {
     paths: offers.map((offer) => ({ params: { id: String(offer.id) } })),
@@ -32,6 +33,13 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const Offer = ({ offer }) => {
+  const router = useRouter();
+  const [session] = useSession();
+
+  if (router.isFallback) {
+    return <Loader />;
+  }
+
   const {
     id,
     companyLogo,
@@ -53,12 +61,6 @@ const Offer = ({ offer }) => {
     jobDescription,
     highlightTill
   } = offer;
-  const router = useRouter();
-  const [session] = useSession();
-
-  if (router.isFallback) {
-    return <Layout>Loading...</Layout>;
-  }
 
   return (
     <Layout>
