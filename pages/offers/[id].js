@@ -2,6 +2,7 @@ import Link from 'next/link';
 import moment from 'moment';
 import { useSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Layout from 'components/Layout';
 import getOffer from 'services/offers/get';
 import getRecentOffers from 'services/offers/getRecent';
@@ -67,7 +68,13 @@ const Offer = ({ offer }) => {
       <div className="flex flex-col gap-10 items-start w-full mb-20 lg:mb-0 lg:gap-20 lg:flex-row lg:max-w-7xl lg:mx-auto">
         <div className="flex flex-col gap-10 bg-white rounded-xl shadow p-6 lg:py-8 w-full lg:px-10 lg:w-7/12 xl:w-8/12">
           <div className="flex items-center gap-5">
-            <img src={companyLogo} alt="logo" className="object-cover w-16 h-16 rounded-full" />
+            <Image
+              src={companyLogo[0]}
+              alt="logo"
+              className="object-cover w-16 h-16 rounded-full"
+              width="64"
+              height="64"
+            />
             <div className="flex-grow">
               <div className="flex items-center justify-between w-full mb-2">
                 <h2 className="text-2xl font-semibold">{title}</h2>

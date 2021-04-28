@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import moment from 'moment';
 import classNames from 'classnames';
+import Image from 'next/image';
 import Badge from 'components/Badge';
 
 const Offer = ({
@@ -26,10 +27,12 @@ const Offer = ({
           `relative flex items-center bg-white rounded-xl shadow p-5 lg:py-8 lg:px-10`,
           { 'border-l-8 border-blue-400': isHighlighted }
         )}>
-        <img
-          src={companyLogo}
+        <Image
+          src={companyLogo[0]}
           alt={`Logo of ${companyName}`}
           className="object-cover rounded-full w-12 h-12 lg:w-16 lg:h-16 "
+          width="64"
+          height="64"
         />
 
         <div className="flex flex-col w-full ml-6 lg:flex-row">
