@@ -17,7 +17,6 @@ const OfferForm = ({ handleSubmit, onSubmit, register, formProcessing, submitLab
           name="title"
           id="title"
           register={register}
-          validation={{ required: true, minLength: 2, maxLength: 20 }}
         />
       </div>
 

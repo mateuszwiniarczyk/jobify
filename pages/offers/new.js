@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/client';
 import Layout from 'components/Layout';
 import OfferForm from 'components/OfferForm';
+import Loader from 'components/Loader';
 
 const AddOffer = () => {
   const { register, handleSubmit } = useForm();
@@ -36,12 +37,13 @@ const AddOffer = () => {
     } else {
       const payload = await response.json();
       setFormProcessing(false);
+      console.log(payload);
       setError(payload.error?.details[0]?.message);
     }
   };
 
   if (loading) {
-    return <Layout>Loading...</Layout>;
+    return <Loader />;
   }
 
   if (!loading && !session) {

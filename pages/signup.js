@@ -30,6 +30,10 @@ const SignUp = () => {
       return;
     }
 
+    if (!data.picture[0]) {
+      setError('Logo is required');
+    }
+
     const file = await uploadImage(data.picture[0]);
 
     const payload = {
@@ -53,7 +57,8 @@ const SignUp = () => {
     } else {
       const payload = await response.json();
       setFormProcessing(false);
-      setError(payload.message);
+      console.log(payload);
+      setError(payload.error);
     }
   };
 

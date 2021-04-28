@@ -58,7 +58,6 @@ export default function HighlightOffer({ offer, products }) {
     } else {
       const payload = await response.json();
       setFormProcessing(false);
-      setFormProcessing(false);
       setError(payload.error?.details[0]?.message);
     }
 

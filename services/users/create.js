@@ -4,10 +4,10 @@ import crypto from 'crypto';
 import { hashPassword } from 'utils';
 
 const schema = Joi.object({
+  imageUrl: Joi.string().required(),
   email: Joi.string().email().required(),
   name: Joi.string().required(),
   password: Joi.string().required(),
-  imageUrl: Joi.string().required(),
   aboutCompany: Joi.string().required()
 });
 

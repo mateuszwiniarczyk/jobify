@@ -81,7 +81,7 @@ const EditOffer = ({
     } else {
       const payload = await response.json();
       setFormProcessing(false);
-      setError(payload.message);
+      setError(payload.error?.details[0]?.message);
     }
   };
 
