@@ -9,6 +9,7 @@ import Label from 'components/Label';
 import ROUTES from 'constants/routes';
 
 import { signIn as signInData } from 'data/forms';
+import Alert from 'components/Alert';
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -69,13 +70,7 @@ const Login = () => {
               </a>
             </Link>
           </form>
-          {error && (
-            <div className="block justify-center w-full my-5 col-span-12">
-              <span className="block bg-red-600 w-full rounded text-white text-center p-5">
-                {error}
-              </span>
-            </div>
-          )}
+          {error && <Alert type="error" label={error} />}
         </div>
       </div>
     </Layout>

@@ -5,6 +5,7 @@ import { signIn } from 'next-auth/client';
 import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Label from 'components/Label';
+import Alert from 'components/Alert';
 
 const UpdatePassword = () => {
   const { register, handleSubmit } = useForm();
@@ -93,7 +94,7 @@ const UpdatePassword = () => {
               {formProcessing ? 'Please wait...' : 'Change password'}
             </button>
           </form>
-          {error && <div>{error}</div>}
+          {error && <Alert type="error" label={error} />}
         </div>
       </div>
     </Layout>

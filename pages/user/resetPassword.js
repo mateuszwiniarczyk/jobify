@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Label from 'components/Label';
+import Alert from 'components/Alert';
 
 const ResetPassword = () => {
   const { register, handleSubmit } = useForm();
@@ -60,8 +61,8 @@ const ResetPassword = () => {
               {formProcessing ? 'Please wait...' : 'Reset password'}
             </button>
           </form>
-          {confirmation && <div>{confirmation}</div>}
-          {error && <div>{error}</div>}
+          {confirmation && <Alert type="info" label={confirmation} />}
+          {error && <Alert type="error" label={error} />}
         </div>
       </div>
     </Layout>

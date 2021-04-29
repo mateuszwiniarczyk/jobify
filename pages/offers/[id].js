@@ -115,7 +115,7 @@ const Offer = ({ offer }) => {
                 </a>
               </Link>
               {highlightTill && (
-                <span className="block mt-3 text-center">
+                <span className="block w-full mt-3 text-center">
                   Highlighted till:
                   <span className="ml-1 text-red-600 font-medium">
                     {moment(highlightTill).format('MMMM Do YYYY, h:mm a')}

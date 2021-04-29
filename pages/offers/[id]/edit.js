@@ -6,6 +6,7 @@ import Layout from 'components/Layout';
 import OfferForm from 'components/OfferForm';
 import getOfferById from 'services/offers/get';
 import isAuthorized from 'services/offers/isAuthorized';
+import Alert from 'components/Alert';
 
 export const getServerSideProps = async ({ req, query }) => {
   const session = await getSession({ req });
@@ -96,13 +97,7 @@ const EditOffer = ({
           formProcessing={formProcessing}
           submitLabel="Edit offer"
         />
-        {error && (
-          <div className="block justify-center w-full my-5 col-span-12">
-            <span className="block bg-red-600 w-full rounded text-white text-center p-5">
-              Offer not added: {error}
-            </span>
-          </div>
-        )}
+        {error && <Alert type="error" label={`Offer not added: ${error}`} />}
       </div>
     </Layout>
   );

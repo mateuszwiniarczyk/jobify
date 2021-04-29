@@ -6,6 +6,7 @@ import Layout from 'components/Layout';
 import getOfferById from 'services/offers/get';
 import isAuthorized from 'services/offers/isAuthorized';
 import getAllProducts from 'services/products/getAll';
+import Alert from 'components/Alert';
 
 export const getServerSideProps = async ({ req, query }) => {
   const session = await getSession({ req });
@@ -94,6 +95,7 @@ export default function HighlightOffer({ offer, products }) {
               {formProcessing ? 'Please wait...' : 'Submit'}
             </button>
           </form>
+          {error && <Alert type="error" label={error} />}
         </div>
       </div>
     </Layout>

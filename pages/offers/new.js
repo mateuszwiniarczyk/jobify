@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/client';
 import Layout from 'components/Layout';
 import OfferForm from 'components/OfferForm';
 import Loader from 'components/Loader';
+import Alert from 'components/Alert';
 
 const AddOffer = () => {
   const { register, handleSubmit } = useForm();
@@ -62,13 +63,7 @@ const AddOffer = () => {
           submitLabel="Add offer"
         />
 
-        {error && (
-          <div className="block justify-center w-full my-5 col-span-12">
-            <span className="block bg-red-600 w-full rounded text-white text-center p-5">
-              Offer not added: {error}
-            </span>
-          </div>
-        )}
+        {error && <Alert type="error" label={`Offer not added: ${error}`} />}
       </div>
     </Layout>
   );

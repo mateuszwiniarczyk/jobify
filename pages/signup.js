@@ -8,6 +8,7 @@ import Label from 'components/Label';
 import { uploadImage } from 'utils';
 import { signUp } from 'data/forms';
 import ROUTES from 'constants/routes';
+import Alert from 'components/Alert';
 
 const SignUp = () => {
   const { register, handleSubmit } = useForm();
@@ -150,13 +151,7 @@ const SignUp = () => {
               </Link>
             </p>
           </form>
-          {error && (
-            <div className="block justify-center w-full my-5 col-span-12">
-              <span className="block bg-red-600 w-full rounded text-white text-center p-5">
-                {error}
-              </span>
-            </div>
-          )}
+          {error && <Alert type="error" label={error} />}
         </div>
       </div>
     </Layout>
