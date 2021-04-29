@@ -1,6 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Introduction
+
+You can check 2 types of accounts:
+
+1. Admin **login**: admin@admin.com **password**: admin123
+2. Company - You can create your own account or sample acount: **login**: spotify@spotify.com **pasword**: spotify123
+
+When you create a new offer, the admin must activate it in the "admin" panel.
+
+If you want to check offer highlighting - sample stripe data:
+
+1. E-mail: john@doe.com
+2. No authentication (default U.S. card): 4242 4242 4242 4242
+3. MM / RR: 03/22
+4. CVC: 123
+
+More information: [Stripe](https://stripe.com/docs/testing)
 
 ## Getting Started
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
