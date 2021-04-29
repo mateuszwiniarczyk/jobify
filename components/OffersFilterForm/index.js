@@ -98,7 +98,7 @@ const OffersFilterForm = ({ filtersStatus }) => {
 
       <button
         type="submit"
-        className="block w-full mt-10 px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+        className="block w-full mt-10 px-3 py-4 text-white bg-blue-500 hover:bg-blue-600 rounded-md focus:bg-blue-600 focus:outline-none">
         Find a job
       </button>
     </form>

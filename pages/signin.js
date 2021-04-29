@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Label from 'components/Label';
+import ROUTES from 'constants/routes';
 
 import { signIn as signInData } from 'data/forms';
 
@@ -58,11 +59,11 @@ const Login = () => {
             <button
               type="submit"
               disabled={formProcessing}
-              className="disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-3">
+              className="disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 hover:bg-blue-600 rounded-md focus:bg-blue-600 focus:outline-none mb-3">
               {formProcessing ? 'Please wait...' : 'Sign in'}
             </button>
 
-            <Link href="/user/resetPassword">
+            <Link href={ROUTES.RESET_PASSWORD}>
               <a className="text-sm text-gray-400 focus:outline-none focus:text-blue-500 hover:text-blue-500 dark:hover:text-blue-300">
                 Forgot password?
               </a>

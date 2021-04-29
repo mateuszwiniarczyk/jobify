@@ -141,7 +141,7 @@ const OfferForm = ({ handleSubmit, onSubmit, register, formProcessing, submitLab
       <button
         type="submit"
         disabled={formProcessing}
-        className="disabled:opacity-50 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg col-span-12 sm:col-span-6 lg:col-span-3 mt-10">
+        className="disabled:opacity-50 text-white bg-blue-500 border-0 py-4 px-10 focus:outline-none hover:bg-blue-600 rounded text-lg col-span-12 sm:col-span-6 lg:col-span-3 mt-10">
         {formProcessing ? 'Please wait...' : submitLabel}
       </button>
     </form>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Layout from 'components/Layout';
 import isAuthorized from 'services/offers/isAuthorized';
 import finalizeCheckout from 'services/checkout/finalize';
+import ROUTES from 'constants/routes';
 
 export const getServerSideProps = async ({ req, query }) => {
   const session = await getSession({ req });
@@ -29,7 +30,7 @@ export default function PaymentStatus({ offer }) {
           Payment status: {offer.stripeCheckoutStatus}
         </h1>
 
-        <Link href="/">
+        <Link href={ROUTES.HOME}>
           <a className="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
             Go to homepage
           </a>

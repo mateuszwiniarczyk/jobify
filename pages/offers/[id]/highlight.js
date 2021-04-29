@@ -90,7 +90,7 @@ export default function HighlightOffer({ offer, products }) {
             <button
               type="submit"
               disabled={formProcessing}
-              className="disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mt-5">
+              className="disabled:oapcity-50 w-full px-3 py-4 text-white bg-blue-500 hover:bg-blue-600 rounded-md focus:bg-blue-600 focus:outline-none mt-5">
               {formProcessing ? 'Please wait...' : 'Submit'}
             </button>
           </form>

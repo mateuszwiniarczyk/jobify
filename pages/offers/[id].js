@@ -102,15 +102,15 @@ const Offer = ({ offer }) => {
             </div>
           </div>
           {isAuthorized(offer, session) && (
-            <div className="flex items-center flex-wrap gap-5">
+            <div className="flex items-center flex-wrap gap-5 text-center">
               <Link href={`/offers/${id}/edit`}>
-                <a className="inline-block flex-grow px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 text-center">
+                <a className="inline-block flex-grow px-10 py-4 text-white bg-blue-500 hover:bg-blue-600 rounded-md focus:bg-blue-600 focus:outline-none">
                   Edit this offer
                 </a>
               </Link>
 
               <Link href={`/offers/${id}/highlight`}>
-                <a className="inline-block flex-grow px-10 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 text-center">
+                <a className="inline-block flex-grow px-10 py-4 text-white bg-blue-500 hover:bg-blue-600 rounded-md focus:bg-blue-600 focus:outline-none">
                   Highlight this offer
                 </a>
               </Link>

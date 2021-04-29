@@ -6,8 +6,8 @@ import Layout from 'components/Layout';
 import Input from 'components/Input';
 import Label from 'components/Label';
 import { uploadImage } from 'utils';
-
 import { signUp } from 'data/forms';
+import ROUTES from 'constants/routes';
 
 const SignUp = () => {
   const { register, handleSubmit } = useForm();
@@ -137,13 +137,13 @@ const SignUp = () => {
             <button
               type="submit"
               disabled={formProcessing}
-              className="disabled:opacity-50 w-full px-3 py-4 text-white bg-blue-500 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
+              className="disabled:opacity-50 w-full px-3 py-4 text-white bg-blue-500 hover:bg-blue-600 rounded-md focus:bg-blue-600 focus:outline-none mb-6">
               {formProcessing ? 'Please wait...' : 'Sign up'}
             </button>
 
             <p className="text-sm text-center text-gray-400">
               Already have an account?
-              <Link href="/signin">
+              <Link href={ROUTES.SIGN_IN}>
                 <a className="text-blue-400 focus:outline-none focus:underline focus:text-blue-500 ml-1">
                   Sign in
                 </a>
