@@ -12,6 +12,11 @@ const navLinks = [
     visible: 'always'
   },
   {
+    path: ROUTES.MY_OFFERS,
+    label: 'My offers',
+    visible: 'logged_in'
+  },
+  {
     path: ROUTES.SIGN_IN,
     label: 'Sign in',
     visible: 'logged_out'

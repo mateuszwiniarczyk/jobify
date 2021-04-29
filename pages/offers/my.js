@@ -2,37 +2,28 @@ import { useState } from 'react';
 import { getSession } from 'next-auth/client';
 import Link from 'next/link';
 import classNames from 'classnames';
-import paginateOffers from 'services/offers/allForAdmin';
-import { jsonFetcher } from 'utils';
+import getForUser from 'services/offers/getForUser';
 import Layout from 'components/Layout';
 
 export const getServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
-  if (!session || session.user.role !== 'admin') {
+  if (!session) {
     return {
       notFound: true
     };
   }
 
-  const offers = await paginateOffers();
+  const offers = await getForUser(session.user.email);
 
   return {
     props: {
-      offset: offers.offset ?? null,
-      offers: offers.records.map((offer) => offer.fields)
+      offers: offers.map((offer) => offer)
     }
   };
 };
 
-const Admin = ({ offers, offset }) => {
+const Admin = ({ offers }) => {
   const [currentOffers, setOffers] = useState(offers);
-  const [currentOffset, setOffset] = useState(offset);
-
-  const loadMore = async () => {
-    const response = await jsonFetcher(`/api/admin/offers/paginate?offset=${currentOffset}`);
-    setOffset(response.offset);
-    setOffers([...currentOffers, ...response.offers]);
-  };
 
   const deleteOffer = async (id) => {
     const response = await fetch(`/api/offers/${id}`, { method: 'DELETE' });
@@ -43,22 +34,6 @@ const Admin = ({ offers, offset }) => {
     }
   };
 
-  const toggleActive = async (id) => {
-    const response = await fetch(`/api/admin/offers/${id}/toggleActive`, { method: 'PUT' });
-
-    if (response.ok) {
-      const { offer: updatedOffer } = await response.json();
-      const updatedOffers = currentOffers.map((offer) => {
-        if (offer.id === updatedOffer.id) {
-          return updatedOffer;
-        }
-
-        return offer;
-      });
-
-      setOffers(updatedOffers);
-    }
-  };
   return (
     <Layout>
       <section className="text-gray-600 body-font">
@@ -90,14 +65,13 @@ const Admin = ({ offers, offset }) => {
                       </td>
                       <td className="py-3 px-6 text-center">{offer.salary}</td>
                       <td className="py-3 px-6 text-center">
-                        <button
-                          onClick={() => toggleActive(offer.id)}
-                          className={classNames('cursor-pointer py-1 px-3 rounded-full text-xs', {
+                        <span
+                          className={classNames('py-1 px-3 rounded-full text-xs', {
                             'bg-red-200 text-red-600': offer.status === 'inactive',
                             'bg-green-200 text-green-600': offer.status === 'active'
                           })}>
                           {offer.status}
-                        </button>
+                        </span>
                       </td>
                       <td className="py-3 px-6 text-center">
                         <div className="flex item-center justify-center">
@@ -163,15 +137,6 @@ const Admin = ({ offers, offset }) => {
                 </tbody>
               </table>
             </div>
-            {currentOffset && (
-              <div className="mx-4 mb-4">
-                <button
-                  className="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg"
-                  onClick={loadMore}>
-                  Load more
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </section>

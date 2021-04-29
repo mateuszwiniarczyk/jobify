@@ -58,7 +58,7 @@ const SignUp = () => {
     } else {
       const payload = await response.json();
       setFormProcessing(false);
-      console.log(payload);
+
       setError(payload.error);
     }
   };
