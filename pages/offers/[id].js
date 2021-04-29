@@ -65,7 +65,7 @@ const Offer = ({ offer }) => {
 
   return (
     <Layout>
-      <div className="flex flex-col gap-10 items-start w-full mb-20 lg:mb-0 lg:gap-20 lg:flex-row lg:max-w-7xl lg:mx-auto">
+      <div className="flex flex-col gap-10 items-start w-full mb-48 lg:mb-0 lg:gap-20 lg:flex-row lg:max-w-7xl lg:mx-auto">
         <div className="flex flex-col gap-10 bg-white rounded-xl shadow p-6 lg:py-8 w-full lg:px-10 lg:w-7/12 xl:w-8/12">
           <div className="flex items-center gap-5">
             <Image
