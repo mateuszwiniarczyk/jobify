@@ -1,52 +1,82 @@
-## Introduction
+# Jobify
 
-You can check 2 types of accounts:
+## Overview 🎉
 
-1. Admin **login**: admin@admin.com **password**: admin123
-2. Company - You can create your own account or sample acount: **login**: spotify@spotify.com **pasword**: spotify123
+It is an application that facilitates your job search. Companies can add, highlight, edit and delete their offers. Offers are checked and accepted by the administrator. After the job offer is verified, it appears on the list of all offers.
 
-When you create a new offer, the admin must activate it in the "admin" panel.
+## Tech/framework used 🔧
 
-If you want to check offer highlighting - sample stripe data:
+- Next.js
+- Tailwind CSS
+- Airtable
+- Stripe
+- joi
+- Cloudinary
 
-1. E-mail: john@doe.com
-2. No authentication (default U.S. card): 4242 4242 4242 4242
-3. MM / RR: 03/22
-4. CVC: 123
+## Accounts 🙍
+
+You can use the created accounts or create your own company account.
+
+| Type    | Login               | Password   |
+| ------- | ------------------- | ---------- |
+| Admin   | admin@admin.com     | admin123   |
+| Company | spotify@spotify.com | spotify123 |
+
+### As admin:
+
+- You can remove offers
+- You are able to highlight offers
+- You can edit all offers
+- You have a possibility to create your own job offer
+- After the company creates a job offer, the admin must activate it to be displayed on the list of all job offers
+
+### As company:
+
+- You can create job offers
+- You are able to highlight your offers
+- You can edit your offers
+- You can remove your offers
+
+If you want to check the highlighting of a job offer, you can use the following data:
+
+| E-mail            | john@doe.com        |
+| ----------------- | ------------------- |
+| default U.S. card | 4242 4242 4242 4242 |
+| MM / RR           | 03/22               |
+| CVC               | 123                 |
 
 More information: [Stripe](https://stripe.com/docs/testing)
 
-## Getting Started
+## Installation 💾
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+```bash
+git clone https://github.com/mateuszwiniarczyk/jobify.git
+npm install
+```
 
-First, run the development server:
+You need to fill in the file .env.example with data.
+After completing the data, rename .env.example file to .env.local
+
+If you want to run the project use:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Screenshots 📺
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![Home](https://i.ibb.co/xJKmPcf/screencapture-jobify-eta-vercel-app-2021-09-04-15-54-55.png)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+![Filter](https://i.ibb.co/bWFFRzg/screencapture-jobify-eta-vercel-app-2021-09-04-15-56-28.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![Offer](https://i.ibb.co/dkQ6MpX/screencapture-jobify-eta-vercel-app-offers-27-2021-09-04-15-56-59.png)
 
-## Learn More
+![Admin](https://i.ibb.co/wwxSzgt/screencapture-jobify-eta-vercel-app-admin-2021-09-04-15-58-26.png)
 
-To learn more about Next.js, take a look at the following resources:
+![Submit offer](https://i.ibb.co/pJHMsXS/screencapture-jobify-eta-vercel-app-offers-new-2021-09-04-15-57-25.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Sign In](https://i.ibb.co/LZdPXrc/screencapture-jobify-eta-vercel-app-signin-2021-09-04-15-59-13.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![Highlight](https://i.ibb.co/RYZX27m/screencapture-jobify-eta-vercel-app-offers-28-highlight-2021-09-04-16-00-57.png)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Stripe](https://i.ibb.co/p10xYNx/screencapture-checkout-stripe-pay-cs-test-a1tk9ix-Nt-WUq-Jax-U1-Mp9b-Dce-QAUzcin3va-Pt-Niaiv0-VIYPk.png)

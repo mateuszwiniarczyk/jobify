@@ -79,8 +79,7 @@ export default function HighlightOffer({ offer, products }) {
               className="w-full placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-100 focus:border-blue-300 capitalize">
               {products.map((product) => (
                 <option value={product.airtableId} key={product.airtableId}>
-                  {product.name}
-
+                  {product.name}&nbsp;
                   {(product.priceCents / 100).toLocaleString('en-US', {
                     style: 'currency',
                     currency: product.priceCurrency
